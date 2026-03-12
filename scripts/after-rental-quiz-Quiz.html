@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;padding:20px}
+.container{max-width:800px;margin:0 auto}
+.header{background:#003366;color:#fff;padding:24px 28px;border-radius:8px 8px 0 0;text-align:center}
+.header h1{font-size:22px;margin-bottom:6px}
+.header p{font-size:13px;color:#a8c8ff}
+.agent-info{background:#fff;padding:20px 28px;border-bottom:2px solid #003366}
+.agent-info label{display:block;font-weight:bold;font-size:13px;color:#003366;margin-bottom:4px;margin-top:12px}
+.agent-info input{width:100%;padding:10px 12px;border:1px solid #ccc;border-radius:4px;font-size:14px}
+.agent-info input:focus{outline:none;border-color:#003366;box-shadow:0 0 0 2px rgba(0,51,102,.15)}
+.question-card{background:#fff;padding:20px 28px;margin-top:2px;border-left:4px solid #003366;position:relative}
+.question-card:nth-child(odd){border-left-color:#0055a5}
+.q-number{display:inline-block;background:#003366;color:#fff;font-size:11px;font-weight:bold;padding:3px 9px;border-radius:3px;margin-bottom:10px}
+.q-text{font-size:14.5px;font-weight:bold;color:#1a1a1a;margin-bottom:14px;line-height:1.5}
+.options label{display:block;padding:10px 14px;margin-bottom:6px;border:1px solid #e0e0e0;border-radius:5px;cursor:pointer;font-size:13.5px;transition:all .15s;line-height:1.5}
+.options label:hover{background:#e8f0fe;border-color:#003366}
+.options input[type="radio"]{margin-right:10px;accent-color:#003366}
+.options input[type="radio"]:checked+span{font-weight:bold}
+.btn-wrap{text-align:center;padding:28px;background:#fff;border-radius:0 0 8px 8px}
+.btn-submit{background:#003366;color:#fff;border:none;padding:14px 48px;font-size:16px;border-radius:6px;cursor:pointer;transition:background .2s}
+.btn-submit:hover{background:#0055a5}
+.btn-submit:disabled{background:#999;cursor:not-allowed}
+
+/* Results */
+.results-box{background:#fff;padding:28px;border-radius:8px;text-align:center;margin-top:2px}
+.score-circle{width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:20px auto;font-size:36px;font-weight:bold;color:#fff}
+.score-pass{background:linear-gradient(135deg,#2e7d32,#43a047)}
+.score-fail{background:linear-gradient(135deg,#c62828,#e53935)}
+.score-ok{background:linear-gradient(135deg,#ef6c00,#fb8c00)}
+.score-label{font-size:13px;font-weight:normal;margin-top:2px}
+.results-detail{text-align:left;margin-top:20px}
+.result-item{padding:12px 16px;margin-bottom:4px;border-radius:5px;font-size:13px;line-height:1.6}
+.result-correct{background:#e8f5e9;border-left:4px solid #43a047}
+.result-wrong{background:#fce4ec;border-left:4px solid #e53935}
+.result-item b{color:#003366}
+.feedback{font-size:12px;color:#555;margin-top:4px;font-style:italic}
+
+.hidden{display:none}
+.error-msg{color:#c62828;font-size:12px;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Europcar After Rental 101 Quiz</h1>
+    <p>15 Questions &bull; Based on CS Process Guides CS001&ndash;CS017 &bull; Internal Training</p>
+  </div>
+
+  <div id="quizForm">
+    <div class="agent-info">
+      <label for="agentName">Agent Full Name *</label>
+      <input type="text" id="agentName" placeholder="e.g. John Smith" required>
+      <label for="agentEmail">Agent Email *</label>
+      <input type="email" id="agentEmail" placeholder="e.g. john.smith@europcar.com" required>
+      <div id="infoError" class="error-msg hidden"></div>
+    </div>
+
+    <div id="questionsContainer"></div>
+
+    <div class="btn-wrap">
+      <div id="submitError" class="error-msg hidden" style="margin-bottom:12px"></div>
+      <button class="btn-submit" id="btnSubmit" onclick="handleSubmit()">Submit Quiz</button>
+    </div>
+  </div>
+
+  <div id="resultsSection" class="hidden"></div>
+</div>
+
+<script>
+var QUESTIONS = [
+  {
+    q: "What is the SLA for a Subject Access Request (SAR) under CS001 Data Protection?",
+    options: ["5 working days", "14 days", "30 days", "60 days"],
+    answer: 2,
+    feedback: "SAR SLA is 30 days as per CS001."
+  },
+  {
+    q: "In the UK, where should all Subject Access Requests be sent after being checked by a Team Leader?",
+    options: ["uk.security@europcar.com", "executive.relations@europcar.com", "csdamage@europcar.com", "outsourcesupport@europcar.com"],
+    answer: 1,
+    feedback: "UK SARs must be sent to executive.relations@europcar.com."
+  },
+  {
+    q: "Which of the following is NOT a valid reason to refuse a Right of Erasure request?",
+    options: ["Customer has outstanding balances", "Customer is watchlisted", "Customer has an ongoing investigation", "Customer has not rented in over 12 months"],
+    answer: 3,
+    feedback: "Valid refusal reasons are: outstanding balances, watchlist, ongoing investigations. Inactivity is not a reason."
+  },
+  {
+    q: "What is the standard grace period for a regular (non-Stars) customer returning a vehicle late?",
+    options: ["15 minutes", "29 minutes", "1 hour", "2 hours"],
+    answer: 1,
+    feedback: "Standard grace period is 29 minutes (CS006). Stars members get 2 hours for UK hires only."
+  },
+  {
+    q: "In Greenway, what does the reservation status code 'NS' mean?",
+    options: ["Not Sold", "No Show", "New Submission", "Not Started"],
+    answer: 1,
+    feedback: "NS = No Show in Greenway reservation status codes (CS002)."
+  },
+  {
+    q: "When searching for damage claims in Riskappli, which number must you use?",
+    options: ["Invoice number", "Reservation number", "Rental Agreement (RA) number", "Driver ID number"],
+    answer: 2,
+    feedback: "Riskappli must be searched using the Rental Agreement (RA) number (CS005)."
+  },
+  {
+    q: "For UK fines queries, which system should you use instead of sending an RFI to the station?",
+    options: ["Connexus", "SAFO", "FileNet", "KGS"],
+    answer: 1,
+    feedback: "Never send UK RFI for fines documents — use SAFO (CS007)."
+  },
+  {
+    q: "According to CS017, what is the maximum refund amount a Station Manager can authorise?",
+    options: ["\u00a325", "\u00a350", "\u00a3100", "\u00a3150"],
+    answer: 1,
+    feedback: "Station Managers can authorise up to \u00a350. \u00a351\u2013\u00a3150 requires a Territory Manager."
+  },
+  {
+    q: "What is the maximum Gesture of Goodwill amount, and who must approve ALL goodwill gestures?",
+    options: ["Max \u00a350, approved by Team Leader", "Max \u00a325, approved by rachel.palmer@europcar.com", "Max \u00a325, approved by Station Manager", "Max \u00a3100, approved by Territory Manager"],
+    answer: 1,
+    feedback: "Max \u00a325 goodwill \u2014 ALL gestures must go to rachel.palmer@europcar.com for approval (CS017)."
+  },
+  {
+    q: "When a UK customer is watchlisted for a reason OTHER than 'Fails to Pay', what should you do?",
+    options: ["Discuss the reason with the customer", "Refer them to Consumer Collections", "Do NOT discuss \u2014 refer them to uk.security@europcar.com", "Escalate to Executive Relations"],
+    answer: 2,
+    feedback: "Only 'Fails to Pay' can be discussed. Any other reason: refer to uk.security@europcar.com (CS002)."
+  },
+  {
+    q: "Within what timeframe must a customer report vehicle cleanliness issues with images and a valet receipt?",
+    options: ["Within 12 hours of hire starting", "Within 24 hours of hire starting", "Within 48 hours of hire starting", "Before the vehicle is returned"],
+    answer: 1,
+    feedback: "Report, images, and valet receipt must all be within 24 hours of hire starting (CS016)."
+  },
+  {
+    q: "Under what circumstance can unused days be refunded for a prepaid early return?",
+    options: ["If the customer gives 24 hours notice", "Early return due to mechanical breakdown (not customer fault)", "Unused days are always refunded", "Unused days are never refunded"],
+    answer: 1,
+    feedback: "Only exception: early return due to mechanical/breakdown \u2014 not keys lost/damaged/locked in (CS006)."
+  },
+  {
+    q: "What must a customer do when their vehicle breaks down before a replacement can be considered?",
+    options: ["Drive to the nearest Europcar station", "Call the CS team directly", "Remain with the vehicle until breakdown service (AA) arrives", "Arrange their own tow and submit receipts"],
+    answer: 2,
+    feedback: "Customer must stay with the vehicle until AA arrives. Leaving = not adhering to T&C (CS011)."
+  },
+  {
+    q: "In the RFI escalation process, if a station doesn't respond within 2 working days, who is next?",
+    options: ["Regional Director", "Operations Director (Kevin Rand)", "Territory Manager (1 more working day)", "outsourcesupport@europcar.com"],
+    answer: 2,
+    feedback: "Escalation: Station (2 days) \u2192 Territory Manager (1 day) \u2192 outsourcesupport@europcar.com (CS017)."
+  },
+  {
+    q: "How long does Europcar hold credit card details after the last transaction?",
+    options: ["6 months", "12 months", "13 months", "24 months"],
+    answer: 2,
+    feedback: "Card details held for 13 months after last transaction \u2014 Privacy Policy section 5 (CS001)."
+  }
+];
+
+function buildQuiz() {
+  var container = document.getElementById('questionsContainer');
+  var html = '';
+  for (var i = 0; i < QUESTIONS.length; i++) {
+    var q = QUESTIONS[i];
+    html += '<div class="question-card">';
+    html += '<span class="q-number">Q' + (i + 1) + ' of 15</span>';
+    html += '<div class="q-text">' + q.q + '</div>';
+    html += '<div class="options">';
+    for (var j = 0; j < q.options.length; j++) {
+      html += '<label><input type="radio" name="q' + i + '" value="' + j + '"><span>' + q.options[j] + '</span></label>';
+    }
+    html += '</div></div>';
+  }
+  container.innerHTML = html;
+}
+
+function handleSubmit() {
+  var name = document.getElementById('agentName').value.trim();
+  var email = document.getElementById('agentEmail').value.trim();
+  var infoError = document.getElementById('infoError');
+  var submitError = document.getElementById('submitError');
+  infoError.classList.add('hidden');
+  submitError.classList.add('hidden');
+
+  if (!name || !email) {
+    infoError.textContent = 'Please enter your name and email.';
+    infoError.classList.remove('hidden');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    return;
+  }
+
+  var answers = [];
+  var unanswered = [];
+  for (var i = 0; i < QUESTIONS.length; i++) {
+    var selected = document.querySelector('input[name="q' + i + '"]:checked');
+    if (!selected) {
+      unanswered.push(i + 1);
+      answers.push({selected: '(no answer)', correct: false});
+    } else {
+      var val = parseInt(selected.value);
+      answers.push({
+        selected: QUESTIONS[i].options[val],
+        correct: val === QUESTIONS[i].answer
+      });
+    }
+  }
+
+  if (unanswered.length > 0) {
+    submitError.textContent = 'Please answer all questions. Missing: Q' + unanswered.join(', Q');
+    submitError.classList.remove('hidden');
+    return;
+  }
+
+  var score = 0;
+  for (var k = 0; k < answers.length; k++) {
+    if (answers[k].correct) score++;
+  }
+
+  var btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  var payload = {
+    agentName: name,
+    agentEmail: email,
+    score: score,
+    total: QUESTIONS.length,
+    answers: answers
+  };
+
+  google.script.run
+    .withSuccessHandler(function() { showResults(score, answers); })
+    .withFailureHandler(function(e) {
+      btn.disabled = false;
+      btn.textContent = 'Submit Quiz';
+      submitError.textContent = 'Error saving: ' + e.message;
+      submitError.classList.remove('hidden');
+    })
+    .submitQuiz(payload);
+}
+
+function showResults(score, answers) {
+  document.getElementById('quizForm').classList.add('hidden');
+  var section = document.getElementById('resultsSection');
+  section.classList.remove('hidden');
+
+  var pct = Math.round((score / QUESTIONS.length) * 100);
+  var cls = pct >= 80 ? 'score-pass' : (pct >= 50 ? 'score-ok' : 'score-fail');
+  var label = pct >= 80 ? 'PASSED' : (pct >= 50 ? 'NEEDS REVIEW' : 'FAILED');
+
+  var html = '<div class="results-box">';
+  html += '<h2 style="color:#003366">Your Results</h2>';
+  html += '<div class="score-circle ' + cls + '">' + score + '/' + QUESTIONS.length + '<span class="score-label">' + label + '</span></div>';
+  html += '<p style="font-size:15px;color:#555">' + pct + '% — ' + (pct >= 80 ? 'Great work!' : 'Please review the topics below and retake.') + '</p>';
+  html += '<div class="results-detail">';
+
+  for (var i = 0; i < QUESTIONS.length; i++) {
+    var correct = answers[i].correct;
+    html += '<div class="result-item ' + (correct ? 'result-correct' : 'result-wrong') + '">';
+    html += '<b>Q' + (i + 1) + ':</b> ' + QUESTIONS[i].q + '<br>';
+    html += '<b>Your answer:</b> ' + answers[i].selected;
+    if (!correct) {
+      html += ' &nbsp; <b>Correct:</b> ' + QUESTIONS[i].options[QUESTIONS[i].answer];
+    }
+    html += '<div class="feedback">' + QUESTIONS[i].feedback + '</div>';
+    html += '</div>';
+  }
+
+  html += '</div>';
+  html += '<div style="margin-top:24px"><button class="btn-submit" onclick="location.reload()">Retake Quiz</button></div>';
+  html += '</div>';
+
+  section.innerHTML = html;
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
