@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Europcar After Rental 101 – CS Process Guide</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#f0f2f5}
+body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a}
+nav{width:250px;background:#003366;color:#fff;position:fixed;top:0;left:0;height:100%;overflow-y:auto;z-index:100}
+nav h2{background:#001f44;padding:14px 12px;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:#a8c8ff;border-bottom:1px solid #002855}
+nav a{display:block;padding:7px 12px;font-size:12px;color:#ccdff7;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);transition:background .15s}
+nav a:hover,nav a.active{background:#0055a5;color:#fff}
+.nav-group{font-size:10px;color:#7aa8d4;padding:9px 12px 3px;text-transform:uppercase;letter-spacing:.6px;border-top:1px solid #002855;background:#00244a}
+main{margin-left:250px;width:calc(100% - 250px);padding:22px 28px;overflow-x:hidden}
+h1{color:#003366;font-size:20px;margin-bottom:4px}
+.subtitle{color:#555;font-size:12.5px;margin-bottom:24px;border-bottom:2px solid #003366;padding-bottom:8px}
+section{background:#fff;border-radius:6px;padding:20px 24px;margin-bottom:26px;box-shadow:0 1px 4px rgba(0,0,0,.09)}
+section h2{color:#003366;font-size:16px;margin-bottom:3px;display:flex;align-items:center;gap:10px}
+.doc-ref{font-size:10px;background:#003366;color:#fff;padding:2px 7px;border-radius:3px;font-weight:bold;white-space:nowrap}
+.doc-version{font-size:11px;color:#777;margin-bottom:12px;margin-top:2px}
+h3{color:#0055a5;font-size:13.5px;margin:16px 0 7px;border-left:3px solid #0055a5;padding-left:8px}
+h4{color:#333;font-size:13px;margin:10px 0 5px;font-weight:bold}
+p{margin-bottom:7px;line-height:1.6}
+ul,ol{padding-left:18px;margin-bottom:8px}
+li{margin-bottom:4px;line-height:1.55}
+.sla{background:#e8f0fe;border:1px solid #b3c9f5;border-radius:4px;padding:8px 12px;margin:10px 0;font-size:12.5px}
+.sla b{color:#003366}
+.rc{background:#f0f4fa;border-left:4px solid #0055a5;padding:7px 11px;margin:8px 0;font-size:12px;border-radius:0 4px 4px 0}
+.rc b{display:block;color:#003366;margin-bottom:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.mbox{background:#fff8e1;border:1px solid #ffca28;border-radius:4px;padding:9px 12px;font-size:12.5px}
+.rbox{background:#e8f5e9;border:1px solid #66bb6a;border-radius:4px;padding:9px 12px;font-size:12.5px}
+.ibox{background:#e3f2fd;border:1px solid #64b5f6;border-radius:4px;padding:9px 12px;font-size:12.5px;margin:8px 0}
+.wbox{background:#fce4ec;border:1px solid #ef9a9a;border-radius:4px;padding:9px 12px;font-size:12.5px;margin:8px 0}
+.gbox{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:4px;padding:9px 12px;font-size:12.5px;margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:12.5px}
+th{background:#003366;color:#fff;padding:7px 9px;text-align:left;font-size:12px}
+td{padding:6px 9px;border-bottom:1px solid #e8e8e8;vertical-align:top}
+tr:nth-child(even) td{background:#f9f9f9}
+code{background:#f4f4f4;border:1px solid #ddd;border-radius:3px;padding:1px 5px;font-family:monospace;font-size:12.5px}
+</style>
+</head>
+<body>
+<nav>
+  <h2>Europcar After Rental 101</h2>
+  <div class="nav-group">Data &amp; Systems</div>
+  <a href="#cs001">CS001 – Data Protection</a>
+  <a href="#cs002">CS002 – Greenway Guide</a>
+  <a href="#cs004">CS004 – Customer Data</a>
+  <a href="#cs030">CS030 – Supporting Systems</a>
+  <div class="nav-group">Charges &amp; Billing</div>
+  <a href="#cs005">CS005 – Damage Charges</a>
+  <a href="#cs006">CS006 – Days Charged / Grace Period</a>
+  <a href="#cs007">CS007 – Fines</a>
+  <a href="#cs008">CS008 – Missing Items</a>
+  <a href="#cs009">CS009 – Product or Price</a>
+  <a href="#cs010">CS010 – Car Group Charged</a>
+  <a href="#cs018">CS018 – Refunds</a>
+  <a href="#cs024">CS024 – Deposit</a>
+  <a href="#cs025">CS025 – Fuel Procedures</a>
+  <a href="#cs026">CS026 – Method of Payment</a>
+  <div class="nav-group">Vehicle &amp; Service</div>
+  <a href="#cs011">CS011 – Breakdown Assistance</a>
+  <a href="#cs012">CS012 – Delivery &amp; Collection</a>
+  <a href="#cs013">CS013 – Standard Service</a>
+  <a href="#cs014">CS014 – Equipment Condition</a>
+  <a href="#cs015">CS015 – Vehicle Category</a>
+  <a href="#cs016">CS016 – Vehicle Condition</a>
+  <div class="nav-group">Coverage &amp; Booking</div>
+  <a href="#cs020">CS020 – Insistence</a>
+  <a href="#cs021">CS021 – Coverage</a>
+  <a href="#cs022">CS022 – Booking</a>
+  <a href="#cs027">CS027 – Unable to Rent</a>
+  <div class="nav-group">Process &amp; Escalation</div>
+  <a href="#cs017">CS017 – Caseworking</a>
+  <a href="#cs028">CS028 – Bespoke Processes</a>
+  <a href="#cs029">CS029 – Discount Codes</a>
+  <a href="#cs033">CS033 – UK RFI Queue</a>
+  <a href="#cs035">CS035 – Complaint Types &amp; Levels</a>
+  <a href="#cs036">CS036 – Compensation &amp; Goodwill</a>
+</nav>
+
+<main>
+<h1>Europcar After Rental — Customer Services 101 Guide</h1>
+<p class="subtitle">All content sourced directly from CS Process Guides (CS001–CS036). For internal training use only.</p>
+
+<!-- CS001 -->
+<section id="cs001">
+<h2><span class="doc-ref">CS001</span> Data Protection</h2>
+<p class="doc-version">v3.9 | 19.01.2026 — Owner: Kelly Sutton</p>
+<div class="sla"><b>SLAs:</b> SAR = 30 days | Right of Erasure = N/A (template) | CC details = N/A (template) | Marketing/Unsubscribe = 5 days | Deceased Person = 5 days | Wrong Driver ID = 24 hrs (advise ER) | Customer GDPR issue = 5 days</div>
+<div class="wbox"><b>Important:</b> Where multiple departments are involved and a GDPR breach has taken place, it is YOUR responsibility to manage it. Do not assume another department will act. Make Executive Relations aware, including any duplicate cases.</div>
+
+<h3>Subject Access Request (SAR)</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Data Protection &gt; Access/Copy of my Data</div>
+<p><b>Who manages:</b> The country where the customer last hired is responsible. Allocate to that country's Salesforce queue, or email the country if non-corporate.</p>
+<p><b>UK only:</b> Send to <code>executive.relations@europcar.com</code> — NOT to Nick Eland / Lucy Brown. ALL SAR requests must be checked by a Team Leader before sending to Executive Relations.</p>
+<h4>Phone:</h4>
+<ol><li>Complete full Data Protection check.</li><li>Create a case with correct reason codes.</li><li>Ascertain which country should manage (last rental country).</li><li>Email customer to acknowledge and advise SLA.</li><li>Send email from case to <code>executive.relations@europcar.com</code> (reference Case number and date of request).</li><li><b>Cancel the case — do NOT close it.</b></li></ol>
+<h4>Email:</h4>
+<ol><li>Forward from CRM tool to <code>executive.relations@europcar.com</code>.</li><li>Email customer to acknowledge; include privacy policy link.</li><li><b>Cancel the case — do NOT close it.</b></li></ol>
+
+<h3>Right of Erasure (ROE)</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Data Protection &gt; Right of Erasure</div>
+<div class="wbox"><b>Cannot delete if:</b> Customer has outstanding balances, is watchlisted, or has an ongoing case. If a complaint also exists, CS must continue to manage and solve it — only the ROE request transfers to the country.</div>
+<p><b>UK only:</b> Email case number and details to <code>executive.relations@europcar.com</code>. Acknowledge customer. Cancel the case.</p>
+<p><b>Other countries:</b> Allocate to relevant country queue (email if non-corporate). Add full case comments including what is to be deleted, why, and who requested it. Escalation flag: Escalation to Country.</p>
+<h4>Reasons an ID cannot be deleted:</h4>
+<ul><li>Outstanding balances — customer must pay first.</li><li>Outstanding investigations (CS, Insurance, PCN) — must be resolved first.</li><li>Watchlisted — cannot remove until watchlist is resolved.</li></ul>
+
+<h3>Erase from CRM Tool Only</h3>
+<p>If customer has a Driver Account on CRM tool but no Driver ID: send all deletion requests to <code>executive.relations@europcar.com</code>. They manage deletion with the requester.</p>
+
+<h3>Credit Card Details</h3>
+<p>We hold card details for 13 months after last transaction (per Privacy Policy, section 5).</p>
+<ul><li><b>13 months passed:</b> Raise IT ticket in Service Now (SNow) for erasure. Include customer details and email showing the request. Cancel case while waiting. Monitor progress.</li><li><b>Not yet 13 months:</b> Advise customer removal not possible. Use existing CRM template.</li></ul>
+
+<h3>Right of a Deceased Person</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Data Protection &gt; Right of a deceased person</div>
+<p>All requests must come in writing. A copy of the death certificate is required.</p>
+<h4>Calls:</h4><p>Advise caller to put request in writing. Create a case on the call and send an email for the caller to respond to. Cancel case until response received.</p>
+<h4>Once death certificate received:</h4><p>Confirm details are correct. Investigate as normal. Closing — Outcome: dependent on reason; Root Cause: dependent on responsible party.</p>
+
+<h3>County Court Judgment (CCJ)</h3>
+<p>Any correspondence referencing: HM Courts and Tribunals Service, HMCTS, Order, Judgement, Moneyclaim, words "Claimant / Defendant / Respondent", or bearing a County Court seal.</p>
+<p><b>Action:</b> Forward immediately to <code>executive.relations@europcar.com</code> with <code>lucy.brown@europcar.com</code> in copy. Cancel the case.</p>
+
+<h3>Restrict or Object to Use of My Data</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Data Protection &gt; Restrict or Object Use of My Data</div>
+<ul><li><b>Fines:</b> Pass to UK Fines queue — they have their own internal policies.</li><li><b>Outstanding Balances:</b> T&amp;C Section 21.2 — customer accepted details can be passed to a Debt Collection Agency for outstanding amounts.</li></ul>
+
+<h3>Marketing Consent / Unsubscribe</h3>
+<div class="rc"><b>Reason Codes:</b> Before Rental &gt; Data Protection &gt; Unsubscribe/Consent Withdraw</div>
+<p>Can be done over phone or email. Advise customer they can self-manage via account login. Update both CRM tool and Greenway.</p>
+<h4>CRM Tool:</h4><ol><li>Search customer by Driver ID. Click driver name in accounts section.</li><li>Access consents information, select brand, tick 'Email Opt Out'. Click Save.</li></ol>
+<h4>Greenway:</h4><ol><li>In reservation screen, add Driver ID. Page Down to 'Contract Mailshot' field.</li><li>Change Y to N. Press F4 to commit.</li></ol>
+<p>Create a ticket in SNOW to be 100% certain the requester has been unsubscribed. Closing: Outcome = Amend Customer Data | Root Cause = Customer</p>
+
+<h3>Wrong Driver ID Selected</h3>
+<p><b>Added by station:</b> Report to Territory Manager immediately. Email <code>executive.relations@europcar.com</code>. Contact both parties. Send apology. Confirm precautions taken.</p>
+<p><b>Added by Reservations:</b> Report to Reservations Manager. Email Executive Relations. Amend Driver ID on invoice if possible. Identify if ID was passed to other departments (fines/insurance) and notify them. Contact both parties with apology.</p>
+<h4>Amend Driver ID in Greenway:</h4><p>Help-desk Screen (Screen 17) → Page down to driver ID screen → F12+E on driver ID field → Add correct Driver ID → F4. If correct ID not found, use dummy ID: <code>105169022</code>.</p>
+<h4>International:</h4><p>Send RFI to relevant country. Request ID amendment or removal. Ensure no additional invoices issued as a result of error.</p>
+<table><tr><th>Scenario</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Breach confirmed</td><td>Apology</td><td>Pick Up Station / Reservations</td></tr>
+<tr><td>No breach</td><td>Explanation</td><td>Customer</td></tr></table>
+
+<h3>Customer Raises a GDPR Issue</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Document Request &gt; Incorrect billing data</div>
+<p>Apologise. Reassure data is safe. Ask customer to delete or destroy any incorrect data received. Create case. Investigate fault. Email <code>executive.relations@europcar.com</code>.</p>
+<p><b>If CS Agent was at fault:</b> Email Team Leader AND Executive Relations with: Case number, agent name, date of breach. Quality form must be completed. Immediate feedback to agent to prevent recurrence.</p>
+
+<h3>Call Deleting (Card Details Recorded)</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Document request &gt; Incorrect billing data</div>
+<p>Alert supervisor or TL immediately. Create Salesforce case with: Account name, Subject="Call Recording Deletion Request", agent name, time &amp; date, Contact ID, reason, discovery source, root cause. Email <code>BSQTUK@europcar.com</code> and <code>kelly.sutton@europcar.com</code>. Closing: Root Cause = Standard Process/Rule | Outcome = Amend Customer Data.</p>
+
+<h3>Solicitor Contact</h3>
+<p>Same process as any third-party request. Ask solicitor to complete our form (One:Net Compliance page), return signed on headed paper, with written client authorisation. Send completed form to <code>lucy.brown@europcar.com</code> for assessment.</p>
+</section>
+
+<!-- CS002 -->
+<section id="cs002">
+<h2><span class="doc-ref">CS002</span> Greenway Master Guide</h2>
+<p class="doc-version">v1 | 28/04/2023 — Owner: Pete Grummitt</p>
+<div class="gbox"><b>Corporate Countries (Greenway):</b> UK, France, Spain, Germany, Belgium, Portugal, Italy, Netherlands, Australia*, New Zealand*<br><b>Franchise:</b> Austria, Switzerland<br><i>*AU/NZ have external billing systems — cannot refund on Greenway.</i></div>
+
+<h3>Reservation Screen</h3>
+<p>Navigate to: Reservations → Enter Bookings → Enter → F12 and S</p>
+<table><tr><th>Shortcut</th><th>Action</th></tr>
+<tr><td>F3</td><td>Search</td></tr>
+<tr><td>F4</td><td>Select / Commit</td></tr>
+<tr><td>F10–F10</td><td>Rate enquiry — price, dates, breakdown, how confirmation was sent</td></tr>
+<tr><td>F5</td><td>Locate Driver ID (Surname, First Name, DOB)</td></tr>
+</table>
+<h4>Finding a reservation:</h4>
+<ul><li><b>With res number:</b> Enter in Res Number field → F3 → F4 to select.</li><li><b>Without ref:</b> Enter Checkout Date, Checkout Station, Surname → F3.</li></ul>
+<h4>Payment codes on reservation:</h4>
+<table><tr><th>Code</th><th>Meaning</th></tr>
+<tr><td>CC</td><td>Credit or Debit Card</td></tr>
+<tr><td>VCH</td><td>Voucher (Tour Ops / Travel Agents)</td></tr>
+<tr><td>PPB</td><td>Prepaid Business Account</td></tr>
+<tr><td>PO</td><td>Business House Purchase Order (corporate accounts)</td></tr>
+</table>
+<h4>Reservation Status Codes (Ctrl+E for history):</h4>
+<table><tr><th>Code</th><th>Meaning</th></tr>
+<tr><td>S</td><td>Sold — confirmed reservation</td></tr>
+<tr><td>CF</td><td>Confirmed (was on request)</td></tr>
+<tr><td>R</td><td>On Request</td></tr>
+<tr><td>F</td><td>Failed</td></tr>
+<tr><td>CO</td><td>Checked Out</td></tr>
+<tr><td>CC</td><td>Cancelled (not prepaid)</td></tr>
+<tr><td>CP</td><td>Cancelled Prepayment</td></tr>
+<tr><td>TD</td><td>Turned Down</td></tr>
+<tr><td>NS</td><td>No Show</td></tr>
+</table>
+
+<h3>Helpdesk Screen (Screen 17)</h3>
+<p>Navigate to: Rental Operations → RA Management → 17, Query RA Details → Enter Res or RA Number</p>
+<ul><li><b>RA Details:</b> RA number, registration, start date/time, starting mileage, vehicle category charge. <b>F12+D on any section</b> shows total charges.</li><li><b>View Vehicle Details:</b> Type V in View Details field → Enter</li><li><b>Delivery &amp; Collection:</b> Type D in View Details field → Enter</li><li><b>Drivers and Waivers:</b> Page down — driver names, additional drivers, waivers (Included / Optional / Mandatory)</li><li><b>Payment:</b> Page down — method of payment. UK cards: VI=Visa, CA=Mastercard, AX=American Express</li><li><b>Notes:</b> F7 to add/view notes</li><li><b>RA Amendments:</b> F12 then F3 anywhere. F12+I shows RA History options.</li></ul>
+<h4>Screen 17 RA Status Codes:</h4>
+<table><tr><th>Code</th><th>Meaning</th></tr>
+<tr><td>OP</td><td>Open — rental ongoing</td></tr>
+<tr><td>PND</td><td>Pending — Del or Col created</td></tr>
+<tr><td>TBE</td><td>To Be Delivered</td></tr>
+<tr><td>INV</td><td>Invoiced — vehicle returned, invoice generated</td></tr>
+<tr><td>BEI</td><td>Being Delivered</td></tr>
+<tr><td>ICC</td><td>Incomplete — vehicle cannot be collected</td></tr>
+<tr><td>CLD</td><td>Closed — Delivery/Collection terminated</td></tr>
+</table>
+
+<h3>Invoice Enquiry Screen</h3>
+<p>Navigate to: Rental Operations → RA Management → Invoice Enquiry → Enter. Search by RA, Invoice, Reservation number, or Driver ID.</p>
+<table><tr><th>Shortcut</th><th>Action</th></tr>
+<tr><td>F12+N</td><td>View Driver ID</td></tr>
+<tr><td>F12+W</td><td>View payment info / card number</td></tr>
+<tr><td>Page Down</td><td>Full breakdown of charges (Page 2)</td></tr>
+<tr><td>F12+E (on Page 2)</td><td>Rental parameters — mileage, reg, vehicle category, charge times</td></tr>
+<tr><td>F12+E (on coverage)</td><td>Shows Optional (O) vs Included (I) covers</td></tr>
+<tr><td>Page Up</td><td>Return to Page 1 (do NOT press F8 here)</td></tr>
+<tr><td>F7</td><td>View/add notes on invoice</td></tr>
+<tr><td>F7 + Tab</td><td>Add a new note → type → F4 to commit</td></tr>
+<tr><td>F7 twice (rapidly)</td><td>Notes added from booking portal</td></tr>
+<tr><td>Ctrl+K</td><td>List all available function keys</td></tr>
+</table>
+<div class="wbox"><b>Do NOT send Tour Operator or Key Account invoices to customers.</b></div>
+<h4>Send copy invoice to customer:</h4><p>Finance → Billing Functions → Rental Operations → Billing Documents → Reprint and Emailing. Doc Type=INVOICE, Doc Number=Invoice Number, Reprint Type=M, Destination=Customer Email, Reprint Ind=R, Submit=Y, F4.</p>
+
+<h3>Invoice Types</h3>
+<table><tr><th>Type</th><th>Description</th></tr>
+<tr><td>Split Billing</td><td>Two invoices under same RA, different payment sources (e.g. RentalCars: TO billed for rental, customer billed for extras)</td></tr>
+<tr><td>Corporate</td><td>Insurance/account covers certain elements per contract; Greenway splits bill accordingly</td></tr>
+<tr><td>Retail</td><td>No Key Account listed. Product code determines rate. Customer pays entirely. F12+W shows card info.</td></tr>
+<tr><td>Periodic</td><td>Generated every 28 days for long-term hires (30 days some international). "Period" field populated; arrow down to view all until "final".</td></tr>
+</table>
+
+<h3>Vehicle Movement Screen</h3>
+<p>Navigate to: Rental Operations → Vehicle Management → Individual vehicle movements → Enter reg → F3. Confirm driver: F12+N. Shortcut chain: F12+N again → Helpdesk → F12+W → Invoice screen.</p>
+<div class="wbox">Vehicle movement shortcuts give view-only invoice — F7 notes do NOT function here.</div>
+
+<h3>Accident Damage Reports (ADR)</h3>
+<p>Navigate to: Rental Operations → Vehicle Management → Accident Damage Reports → Enter RA → F3 → F4 to show damage. If no damage charges on invoice but ADR exists → claim is with Insurance team → refer customer accordingly. Do NOT confirm estimated amount — could be incorrect.</p>
+
+<h3>P11D</h3>
+<p>Navigate to: Fleet → Inventory → Vehicle Management → Display vehicle data → Display Vehicle Details → Enter reg → F3. Page down for details. F12+A for P11D information (CO2 emissions, registration date, list value).</p>
+
+<h3>Watchlisted Driver</h3>
+<p>Navigate to: Marketing &amp; Sales → Sales Admin Main Menu → Driver Menu → Watchlist Driver → Enter Driver ID → F3</p>
+<table><tr><th>Reason</th><th>Action</th></tr>
+<tr><td>Fails to Pay (UK)</td><td>ONLY reason you can discuss with customer. Check RA (file reference). Refer to Consumer Collections: 0871 3843474.</td></tr>
+<tr><td>Any other reason (UK)</td><td>Do NOT discuss. Refer customer to email: <code>uk.security@europcar.com</code></td></tr>
+<tr><td>Overseas watchlist (Fails to Pay)</td><td>Can discuss. RFI process to query/dispute. Customer must contact relevant country's collections team.</td></tr>
+<tr><td>Overseas (other reason)</td><td>Refer customer to the country that placed them on it.</td></tr>
+</table>
+</section>
+
+<!-- CS004 -->
+<section id="cs004">
+<h2><span class="doc-ref">CS004</span> Customer Data (Non-GDPR)</h2>
+<p class="doc-version">v1.2 | 15.04.2024 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<p>Used for VAT, Driver Details, and Billing Details queries. For GDPR cases under Customer Data, refer to CS001.</p>
+
+<h3>VAT</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Document Request &gt; Incorrect Billing Data</div>
+<ul><li><b>VAT receipt request:</b> Same as invoice — send the invoice.</li><li><b>VAT on all products?</b> No — some services are fully exclusive (e.g. refuelling service charge). Check invoice breakdown to confirm.</li><li><b>Disputing VAT on additional products:</b> Maintain if applied correctly. Provide signed RA as evidence customer accepted VAT on all charges at checkout.</li><li><b>VAT incorrectly charged:</b> Check VAT amount in Greenway Reservations rate engine screen against correct tariff for country.</li></ul>
+<h4>RFI: Only needed for overseas non-Greenway countries.</h4>
+<h4>Refund: If Greenway shows incorrect; confirmed by Tax and Reporting Manager; overseas non-Greenway with no RFI response within SLA.</h4>
+<p><b>Adjusting VAT directly:</b> Must be authorised by Tax and Reporting Manager of Europcar. Email RA number and reason. Await response before acting.</p>
+
+<h3>Driver Details</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Document Request &gt; Incorrect Billing Data</div>
+<ul><li><b>Address amendment:</b> Cannot amend over phone. Customer must do online via Driver ID account. If unable, they may email and we can action on their behalf.</li><li><b>Email/phone amendment:</b> Amend directly on CRM tool by editing customer account.</li><li><b>Merging duplicate IDs:</b> Request INC ticket via Merge Driver IDs process. Add INC number to case.</li></ul>
+<p>Closing: Outcome = Amend customer data | Root Cause = Customer</p>
+
+<h3>Billing Details — Amending Invoice Address (DEBCRED)</h3>
+<p>Amend consumer invoice only — NOT Corporate Account or Tour Operator. Customer must be aware of refund/recharge process that occurs.</p>
+<ol><li>Invoice Inquiry → F12+F → Fast Path → type DEBCRED → Enter.</li><li>Tab to Add Renter = Y → Enter → fill all fields with new info (including Surname/First name even if same).</li><li>F4 → F12+N → F5 → select source → Enter → Tab → F5 → Wrong Data Billed → Enter → Tab → F5 → Incorrect Address → Enter → F4.</li><li>Tab → add brief comment → Enter → Page Down → F12+N → Enter.</li><li>Verify original and new amounts match. Credit Card popup → enter through to MoP → F4.</li><li>Y to Create Invoice → 0 to Print Invoice → F8 to main menu.</li></ol>
+</section>
+
+<!-- CS005 -->
+<section id="cs005">
+<h2><span class="doc-ref">CS005</span> Damage Charges</h2>
+<p class="doc-version">v1.3 | 04.09.2025 — Owner: Pete Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox"><b>Always check:</b> Corporate booking? Key Account list → if yes: allocate to UK-Key Accounts. Tour operator? Also UK-Key Accounts. Overseas rental? Also UK-Key Accounts.</div>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Invoice dispute / damage &gt; Damage / request for info</div>
+<p>CS agents only work cases for <b>damage document requests</b> and to review/reallocate if customer wants to dispute.</p>
+<h3>Riskappli</h3>
+<p>Link: <code>https://riskappli-europcar.my.salesforce.com/</code> — Search by <b>Rental Agreement number</b> (not reservation or invoice number). Claims take up to 24 hours to appear after vehicle check-in.</p>
+<ol><li>Within the claim, select <b>Docs Refs</b>.</li><li>Download and send customer any documents under <b>"Invoice pack"</b> type.</li><li>No damage documents and vehicle checked in 24+ hours ago → advise customer no damage claims exist.</li><li>Vehicle checked in less than 24 hours ago → forward to <code>csdamage@europcar.com</code>, inform customer, mark case cancelled.</li></ol>
+<h4>Routing:</h4>
+<ul><li><b>ISS booking:</b> Reallocate case to Gurpreet Kaur.</li><li><b>Not KA or ISS (dispute):</b> Create 1 case, forward to <code>csdamage@europcar.com</code>, inform customer (give case number). Damage team contacts customer directly.</li><li><b>Charge visible in UK, no Greenway invoice:</b> Insurance team charge → allocate to <b>UK-Damage queue</b>.</li></ul>
+</section>
+
+<!-- CS006 -->
+<section id="cs006">
+<h2><span class="doc-ref">CS006</span> Days Charged / Grace Period</h2>
+<p class="doc-version">v1.1 | 15.04.2024 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking? → UK-Key Account queue. Rental stations do NOT hold rental documentation — do not contact them for documents.</div>
+
+<h3>Grace Period</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Non-Compliance with Rental Agreement</div>
+<table><tr><th>Customer type</th><th>Grace period</th></tr>
+<tr><td>Standard</td><td><b>29 minutes</b></td></tr>
+<tr><td>Stars (UK hires only)</td><td><b>2 hours</b></td></tr>
+</table>
+<p>If customer disputes grace period: do NOT send RFI — maintain with T&amp;C. Only send RFI if customer directly states station advised they could return after grace period at no charge.</p>
+
+<h3>Days Charged</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Non-Compliance with Rental Agreement</div>
+<div class="grid2">
+<div class="ibox"><b>Send RFI when:</b><ul><li>Customer claims early check-out was permitted at no charge.</li><li>Customer claims station agreed not to charge additional day.</li><li>Customer is adamant they returned on time.</li></ul></div>
+<div class="mbox"><b>Maintain when:</b><ul><li>Sufficient documented evidence available.</li><li>Customer accepts late return, only disputes the amount.</li><li>Customer accepts late return, only disputes grace period.</li></ul></div>
+</div>
+<div class="rbox"><b>Refund when:</b> Sufficient evidence vehicle returned on time. RFI confirms additional day charged in error. No RFI response and/or insufficient documentation.</div>
+<h4>Systems to check:</h4><ul><li>Greenway F7 notes on invoice, Vehicle Movement Screen</li><li>Connexus — may show actual return time, counteracting Greenway check-in time</li></ul>
+
+<h3>Additional Days — Amount Dispute</h3>
+<p>We cannot charge more than the amount shown on the rental agreement unless the customer has signed a new RA. T&amp;C: customer is liable for all charges until vehicle returned. Check RA and SOR to see if customer signed for additional day at start or accepted fee on return.</p>
+
+<h3>Prepaid Early Return — Daily Rate Increased</h3>
+<p>Happens when package rental (7/14/28 days) is returned early — system reverts to a different daily rate. We cannot charge a higher daily rate than the RA. Revert invoice to original prepaid dates on Greenway. If not possible, calculate manually and refund as allowance or via form.</p>
+
+<h3>Prepaid Early Return — Unused Days Refund</h3>
+<p>T&amp;C: We do not refund for unused days. Exception only: early return due to mechanical/breakdown (not keys lost/damaged/locked in). Charge back to return station as it should not have amended the charge date/time.</p>
+
+<h3>Extension Not Authorised</h3>
+<div class="rc"><b>Reason Codes:</b> During Rental Experience &gt; Rental Extension &gt; Extension Not Authorised</div>
+<p>For TO bookings: station charges daily rate on date of extension. Voucher coverage: if TO emails us accepting additional days, amend voucher in DEBCRED. If customer claims TO should cover: refer customer back to TO. If TO contacts us, we can amend accordingly.</p>
+
+<h3>Case Closing Summary</h3>
+<table><tr><th>Scenario</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Maintain charge</td><td>Charges Upheld</td><td>Customer</td></tr>
+<tr><td>Maintain via Connexus</td><td>Charges Upheld – Connexus justified</td><td>Customer</td></tr>
+<tr><td>Refund</td><td>Refund</td><td>Pick Up / Return Station</td></tr>
+<tr><td>Refund (prepaid stuck)</td><td>Refund</td><td>System Error</td></tr>
+<tr><td>Refund (no Connexus data)</td><td>Refund – lack of documented evidence</td><td>System Error</td></tr>
+<tr><td>Discount code</td><td>Upgrade Coupon/Voucher</td><td>Pick Up / Return Station</td></tr>
+</table>
+</section>
+
+<!-- CS007 -->
+<section id="cs007">
+<h2><span class="doc-ref">CS007</span> Fines</h2>
+<p class="doc-version">v1.3 | 05.11.2025 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account. Never send UK RFI for fines documents — use SAFO. All overseas fines queries → UK-Fines team.</div>
+
+<h3>What Goes to UK-Fines or UK-Key Account Queue</h3>
+<ul><li>Any Key Account case</li><li>Customer disputing admin fee with evidence that fine was cancelled or issued in error</li><li>Customer claims fine issued in error (not them driving)</li><li>Any overseas hire fine query</li><li>Fines Wrong Identification — CS does NOT investigate, immediately to UK-Fines</li></ul>
+
+<h3>Fines Admin Fee</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Fines &gt; Fines Admin Fee</div>
+<ul><li><b>Gatekeepers:</b> Can tell customer what the charge is for; send documents; log/close case; email customer contact details; open and cancel case requesting they respond with evidence if disputing.</li><li><b>Caseworkers:</b> Can email information on admin fees. Can maintain admin fee if it is the only disputed element. Can advise on transfer of liability process.</li></ul>
+<p>If customer needs to send evidence: email from CRM tool, allocate to UK-Fines/UK-Key Account queue, cancel case. When customer responds, case opens in correct queue.</p>
+<p>Documents to send: Signed RA, Invoice from SAFO, Notice to Owner from SAFO, T&amp;C link. Closing: Outcome = Explanation | Root Cause = Standard Process Rule</p>
+
+<h3>Fines Documents Requested</h3>
+<div class="rc"><b>Reason Codes:</b> Charges and Identification &gt; Fines &gt; Fines Information Requested</div>
+<p>Documents: Signed RA + Invoice from SAFO + Notice to Owner from SAFO. Closing: Outcome = Documents Sent | Root Cause = Customer</p>
+
+<h3>Fines Information Requested</h3>
+<div class="rc"><b>Reason Codes:</b> Charges and Identification &gt; Fines &gt; Fines Information Requested</div>
+<p>Customer asking for info on charge but NOT disputing. Always supply documents. Closing: Outcome = Explanation | Root Cause = Customer</p>
+
+<h3>Fines Dispute</h3>
+<div class="rc"><b>Reason Codes:</b> Charges and Identification &gt; Fines &gt; Fines dispute</div>
+<p>Log case, send confirmation email requesting evidence, allocate to correct queue, cancel. Customer's response opens case in correct queue. If customer has no cancellation notice but fine already paid by Europcar: send transfer of liability letter from SAFO/GEM. If not available, instruct customer to use transfer of liability letter from their original notification. If no evidence available → refer to UK-Fines team. Card payment fees from issuing authority when Europcar already paid: mandatory charge outside our control — maintain if fine is maintained.</p>
+
+<h3>Authority Fee Table</h3>
+<table><tr><th>Authority</th><th>Fee</th></tr>
+<tr><td>All Parking Services UK Ltd</td><td>£1.95</td></tr>
+<tr><td>ANPR Payment Recovery Ltd</td><td>£1.95</td></tr>
+<tr><td>Azure Parking Limited</td><td>£1.95</td></tr>
+<tr><td>Bank Park Management Ltd</td><td>£1.50</td></tr>
+<tr><td>Bridge Security CCTV Ltd</td><td>£1.95</td></tr>
+<tr><td>Carrpool Ltd</td><td>£1.95</td></tr>
+<tr><td>CP Plus Limited</td><td>£1.50</td></tr>
+<tr><td>Cumbria Parking Services</td><td>£2.45</td></tr>
+<tr><td>G24 Limited</td><td>£1.50</td></tr>
+<tr><td>GroupNexus Appeals Dept</td><td>£1.50</td></tr>
+<tr><td>Highview Parking Ltd</td><td>£1.50</td></tr>
+<tr><td>LDK Security Group Limited</td><td>£1.95</td></tr>
+<tr><td>Parking Enforcement &amp; Security Services Ltd</td><td>£1.95</td></tr>
+<tr><td>Saba Parking Services UK Ltd</td><td>£1.95</td></tr>
+<tr><td>UK Parking Control Ltd</td><td>£1.50</td></tr>
+<tr><td>UK Parking Enforcement Ltd</td><td>£1.95</td></tr>
+</table>
+</section>
+
+<!-- CS008 -->
+<section id="cs008">
+<h2><span class="doc-ref">CS008</span> Missing Items</h2>
+<p class="doc-version">v1.2 | 15.04.2024 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Charge visible in UK but no Greenway invoice → Insurance team charge → allocate to <b>UK-Damage queue</b>.</div>
+
+<h3>Vehicle Documents</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Non Compliance with Rental Agreement</div>
+<h4>Investigation:</h4><ul><li>Always check Greenway F7 notes first — station may have recorded item is missing or has been returned.</li><li>Check all docs: Delivery Documents, SOR, Rental Agreement.</li></ul>
+<h4>Send RFI when:</h4><p>No information on systems; to confirm if item was present at start and missing on return; or customer may have returned item after invoice generated.</p>
+<div class="grid2">
+<div class="mbox"><b>Maintain:</b> All information confirms equipment provided and not returned.</div>
+<div class="rbox"><b>Refund:</b> Station/F7 notes show item returned. No documents + no RFI response.</div>
+</div>
+
+<h3>Keys</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Non Compliance with Rental Agreement</div>
+<p>Customer responsible for vehicle, keys and all accessories for duration of hire (T&amp;C). Only one set of keys at station. If lost: replacement ordered from manufacturer. Customer may also be charged daily loss-of-use rate until replacement keys received.</p>
+<h4>Send RFI when:</h4><p>Customer claims keys were returned (may have been put in wrong key box or given to another desk at airports). Customer may have returned keys after invoice generated.</p>
+<div class="grid2">
+<div class="mbox"><b>Maintain:</b> All info shows keys not returned or lost. Overseas: country confirms not returned. Replacement already ordered before keys returned — cost still applies.</div>
+<div class="rbox"><b>Refund:</b> Station/F7 notes show keys returned before replacement ordered. RFI confirms found/returned before replacement ordered. No RFI response.</div>
+</div>
+<table><tr><th>Scenario</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Refunding</td><td>Refund</td><td>Return / Pick Up Station</td></tr>
+<tr><td>Maintaining</td><td>Charges upheld</td><td>Customer</td></tr>
+</table>
+</section>
+
+<!-- CS009 -->
+<section id="cs009">
+<h2><span class="doc-ref">CS009</span> Product or Price</h2>
+<p class="doc-version">v1.2 | 16.12.2025 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account. Bundle product bookings: SOE not required to maintain products in that bundle.</div>
+
+<h3>Out of Hours Collection or Return / After Hours</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Non Compliance with Rental Agreement</div>
+<p>Used when: customer checks out after standard opening hours (out of hours collection); or customer returns keys to key return box (out of hours keys return box). Both show as "After Hours" charge on Greenway.</p>
+<div class="grid2">
+<div class="ibox"><b>Send RFI when:</b> Customer states station advised they would not be liable for the charge.</div>
+<div class="mbox"><b>Maintain when:</b> Signed RA confirms customer accepted charge. Charge is in Tariff Guide/T&amp;C.</div>
+</div>
+<div class="rbox"><b>Refund when:</b> Station confirms no charge. RFI confirms station advised no charge. No RFI response within SLA. No documents within 5 working days (UK).</div>
+
+<h3>Mileage Charges</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; General &gt; Excessive mileage charge</div>
+<p><b>Different auth limits apply</b> (also applies to One-Way, Days Charged, Vehicle Category — not upgrade charges):</p>
+<table><tr><th>Amount</th><th>Authority</th></tr>
+<tr><td>Less than £500</td><td>Process credit where fault identified (maintain if correct)</td></tr>
+<tr><td>£500 – £750</td><td>Station Manager approval required</td></tr>
+<tr><td>£750 – £1,000</td><td>Territory Manager or Regional Director authorisation</td></tr>
+<tr><td>£1,000 – £3,000</td><td>Operations Director (Kevin Rand) required</td></tr>
+</table>
+<h4>Systems:</h4> Connexus mileage telemetry, D&amp;C App (odometer photos), Greenway.
+<div class="grid2">
+<div class="mbox"><b>Maintain:</b> Signed RA and docs confirm mileage. Connexus confirms mileage.</div>
+<div class="rbox"><b>Refund:</b> No signed RA/documents. Connexus shows mileage not supported. No RFI response (overseas).</div>
+</div>
+
+<h3>One-Way Fee</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; One Way</div>
+<p>Same authorisation limits as mileage charges above. Vehicle returned to a different location from pick-up.</p>
+<div class="grid2">
+<div class="mbox"><b>Maintain:</b> Charge on reservation at booking. Signed RA/SOE confirm customer accepted.</div>
+<div class="rbox"><b>Refund:</b> Charge not on reservation. Documents not signed/present. No RFI response.</div>
+</div>
+
+<h3>Rate Dispute</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; General &gt; Negotiated rate not applied / Tariff issue</div>
+<p>Check rate engine in Greenway (F10–F10 on reservation screen) to see the rate agreed at reservation. If invoice rate differs without a signed amendment, refund the difference. Level 2 case.</p>
+
+<h3>Tolls / Via Verde Dispute</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Tolls charge / Via Verde dispute</div>
+<p>Level 2 case. Check documentation. For Via Verde, additional documentation may be required from the country.</p>
+
+<h3>AdBlue Charge</h3>
+<p>First check vehicle spec sheet in Connexus to confirm vehicle is an AdBlue vehicle. Maintain with signed documentation. Refund if vehicle is not AdBlue type or no documentation.</p>
+
+<h3>Late Return Fee / High Season Surcharge / Airport Return Fee / Location Surcharge / Licences and Fees Surcharge</h3>
+<p>All are in the Tariff Guide. Maintain with signed RA confirming acceptance. Refund if not on reservation or no documentation present within 5 working days.</p>
+
+<h3>Equipment Delivery / Collection Charge</h3>
+<p>Details on website and in Tariff Guide. Pricing changes with distance. If price charged differs from original reservation quote and address unchanged → refund the difference.</p>
+</section>
+
+<!-- CS010 -->
+<section id="cs010">
+<h2><span class="doc-ref">CS010</span> Car Group Charged</h2>
+<p class="doc-version">v1.3 | 16.12.2025 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="rc"><b>Reason Codes:</b> Pickup and Return time &gt; Vehicle Category &gt; Wrong Category allocated</div>
+<div class="wbox">Corporate booking → UK-Key Account queue.</div>
+<p>Customer was supplied with a different vehicle category and is disputing the additional charge. As per T&amp;C, we can offer an upgrade to the customer — maximum charge listed in Tariff Guide. Check amount charged per day to ensure we have not charged more per day than permitted. Tariff Guide = UK rentals only; for overseas, check website specific terms per country.</p>
+
+<h3>When to Send RFI</h3>
+<ul><li><b>UK:</b> No UK RFI needed — documents should be on Customer First and KGS. If not present, refund (do not contact station; they don't keep copies).</li><li><b>Overseas:</b> RFI only if documents needed to maintain charge. Check Salesforce for corporate countries first.</li></ul>
+<p>Documents appear within <b>5 working days</b> of return date. Decision on 6th working day if still not present.</p>
+
+<h3>Maintain / Refund</h3>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b><br>Signed RA and SOE completed correctly showing correct charges (including VAT).<br>Overseas: country confirms with signed RA.</div>
+<div class="rbox"><b>Refund when:</b><br>UK: RA/SOE not fully signed or amounts incorrect. No documents in KGS/CRM within 5 working days.<br>Overseas: no RFI response within SLA.</div>
+</div>
+<table><tr><th>Scenario</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Refund</td><td>Refund</td><td>Pickup Station</td></tr>
+<tr><td>Maintain</td><td>Charges upheld</td><td>Customer</td></tr>
+</table>
+</section>
+
+
+
+<!-- CS011 -->
+<section id="cs011">
+<h2><span class="doc-ref">CS011</span> Breakdown Assistance</h2>
+<p class="doc-version">v1.3 | 01.10.2025 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account queue. We are under no obligation to refund for stress, loss of business, or time (T&amp;C Section 23).</div>
+<p>If vehicle breaks down: customer must call the roadside assistance number (AA) — number available on One:Net (Vehicle Breakdown Services) and on the paperwork/inside windscreen provided at hire start. We are required to supply a replacement vehicle as part of the breakdown process. We would NOT offer a replacement if breakdown/accident is a result of driver negligence.</p>
+
+<h3>Car Replacement Not Suitable</h3>
+<div class="rc"><b>Reason Codes:</b> During Rental Experience &gt; Issue with assistance &gt; Replacement not provided or not satisfactory</div>
+<ul>
+<li>We offer the closest vehicle to the category hired — we may not have sufficient notice for exact category.</li>
+<li>UK hires (replacement provided): no RFI needed — Greenway Invoice screen shows vehicle changeover.</li>
+<li>UK hires (no replacement): send RFI to ascertain reasons.</li>
+<li>Overseas: raise RFI with country, detailing complaint and compensation requested.</li>
+</ul>
+<div class="grid2">
+<div class="rbox"><b>Refund when:</b> Downgraded replacement — refund difference in daily rate for days on replacement vehicle. No replacement provided — refund days without a vehicle.</div>
+<div class="mbox"><b>Decline when:</b> Replacement was in same category. Overseas: if country declines, their decision stands.</div>
+</div>
+<table><tr><th>Scenario</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Declined</td><td>Apology</td><td>Changeover Station</td></tr>
+<tr><td>Refund days/category</td><td>Refund</td><td>Changeover Station</td></tr>
+<tr><td>Voucher</td><td>Upgrade Coupon/Voucher</td><td>Breakdown Assistance</td></tr>
+</table>
+
+<h3>Expenses</h3>
+<div class="rc"><b>Reason Codes:</b> During Rental Experience &gt; Issue with assistance &gt; Replacement not provided or not satisfactory</div>
+<p>Require evidence/receipts before making a decision. Max liability = value of the vehicle hire and ancillary services reserved (T&amp;C Section 23).</p>
+<h4>UK Hires:</h4><p>Email <code>lucy.dilks@europcar.com</code> with <code>fleetservicesuk@europcar.com</code> in copy. Fleet has <b>14 days</b> to respond. Cancel case for 14 days; monitor; if no response after 14 days, proceed with appropriate reimbursement. Approach Team Manager for advice once facts received from Fleet.</p>
+<h4>Refund tyre costs:</h4><p>If customer covered by a protection package — refund through standard corporate station chargeback form using station chargeback code.</p>
+<h4>Decline:</h4><ul><li>Unreasonable hotel costs (already had hotel booked, etc.).</li><li>Driver misuse caused the breakdown/accident.</li></ul>
+
+<h3>Replacement Not Provided</h3>
+<div class="rc"><b>Reason Codes:</b> During Rental Experience &gt; Issue with assistance &gt; Replacement not provided or not satisfactory</div>
+<p>Customer must remain with vehicle until breakdown service arrives — if they do not wait, they have not adhered to T&amp;C and we would not consider compensation. If no replacement due to driver negligence: no obligation to provide one.</p>
+<div class="grid2">
+<div class="rbox"><b>Refund:</b> Days without replacement vehicle. Hours without vehicle: add allowance refund. Alternative travel: refund as allowance or form.</div>
+<div class="mbox"><b>Decline:</b> Replacement provided within same day. Driver negligence caused breakdown.</div>
+</div>
+
+<h3>Waiting Time Assistance</h3>
+<div class="rc"><b>Reason Codes:</b> During Rental Experience &gt; Issue with assistance &gt; Waiting time assistance / hard to contact assistance</div>
+<h4>UK:</h4><p>Email <code>benjamin.spokes@europcar.com</code> and <code>FleetServicesUK@europcar.com</code>. Fleet has <b>14 days</b> to respond. Cancel case for 14 days; monitor; if no response, make decision and offer compensation if applicable. Approach Team Manager for guidance. Discount code for future hires can be offered for inconvenience.</p>
+<h4>Overseas:</h4><p>RFI to relevant country. Country makes the compensation decision.</p>
+</section>
+
+<!-- CS012 -->
+<section id="cs012">
+<h2><span class="doc-ref">CS012</span> Delivery &amp; Collection Service</h2>
+<p class="doc-version">v1.1 | 15.04.2024 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account queue. Full service details on website under "Deliver and Collect". Pricing in Tariff Guide.</div>
+
+<h3>Delivery Service</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Collection / Delivery charge</div>
+<h4>Send RFI when:</h4><ul><li>Delivery was late and reason not clear on Greenway F7 notes.</li><li>Customer claims vehicle was not delivered and reason not on F7 notes.</li><li>Customer unhappy with service provided by delivery driver.</li></ul>
+<h4>Refund when:</h4><ul><li>Price charged differs from original reservation quote and delivery address unchanged → refund the difference.</li><li>Excessive inconvenience to customer.</li><li>Branch confirms via RFI.</li></ul>
+
+<h3>Collection Service</h3>
+<div class="rc"><b>Reason Codes:</b> After Rental &gt; Invoice Dispute &gt; Extra Services &gt; Collection / Delivery charge</div>
+<p>Same process as Delivery. Check agreed collection charge on Greenway. If price differs from original quote and address unchanged → refund difference. Refund if excessive inconvenience or RFI confirms.</p>
+<table><tr><th>Scenario</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Maintaining</td><td>Apology</td><td>Customer</td></tr>
+<tr><td>Refunding</td><td>Refund</td><td>Return Station</td></tr>
+<tr><td>Voucher</td><td>Upgrade Coupon/Voucher</td><td>Return Station</td></tr>
+</table>
+</section>
+
+<!-- CS013 -->
+<section id="cs013">
+<h2><span class="doc-ref">CS013</span> Standard Service</h2>
+<p class="doc-version">v1.3 | 15.04.2024 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account queue.</div>
+
+<h3>Lost Property</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and Return time &gt; Return experience &gt; Lost Property</div>
+<p>Use the <b>Lost Property App</b> (link on One:Net). Search by RA number or registration. If nothing appears: no items were located.</p>
+<h4>Process:</h4>
+<ol><li>Click into the item, fill Section 5 "Customer Contacted Europcar" — record when customer contacted and confirm/record preferred email (used for automatic dispatch/collection confirmation email).</li><li>Fill Collection Arrangements section — 3 options (all customer's responsibility and cost): In person | By a representative | By courier.</li></ol>
+<p>When status changes from "uncollected" to "collected", an automatic email is sent to the address provided in Section 5.</p>
+
+<h3>No Car Available</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and Return time &gt; Rental refused at pickup &gt; Vehicle not available at pickup</div>
+<ul><li>UK: RFI to return station to confirm vehicle unavailability if no notes on Greenway/CRM.</li><li>Overseas: RFI to renting country.</li><li>Refund up to full cost of prepaid hire if confirmed no vehicle available. Discount voucher may also be considered.</li></ul>
+<table><tr><th>Scenario</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Explanation only</td><td>Explanation</td><td>Customer</td></tr>
+<tr><td>Refunding prepayment</td><td>Refund</td><td>Pickup Station</td></tr>
+</table>
+
+<h3>Opening Hours</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and Return time &gt; Pick up experience &gt; Station access at pickup</div>
+<p>Station was closed when it should have been open. UK: RFI to return station if no notes. Overseas: RFI to country. Refund up to full cost of prepaid hire if station confirmed closed within standard hours or did not honour flight number provided. Discount voucher may be considered.</p>
+
+<h3>Parking and Station Condition</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and Return time &gt; Pick up experience &gt; Station access at pickup</div>
+<p>UK: RFI to return station if applicable. Overseas: RFI to country. Discount voucher may be considered based on individual circumstances.</p>
+
+<h3>Staff Assistance</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and Return time &gt; Return experience &gt; Staff poor service at return</div>
+<p>UK: RFI to return station. Overseas: RFI to country. Discount voucher or partial refund if customer lost time of hire due to staff assistance issues.</p>
+
+<h3>Visibility / Signage</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and Return time &gt; Pick up experience &gt; Station access at pickup</div>
+<p>UK: RFI to return station. Overseas: RFI to country. Discount voucher or partial refund if customer lost time of hire due to signage issues.</p>
+</section>
+
+<!-- CS014 -->
+<section id="cs014">
+<h2><span class="doc-ref">CS014</span> Equipment Condition / Availability</h2>
+<p class="doc-version">v1.2 | 15.04.2024 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account. Do NOT use this guide if customer is disputing being charged — use the Equipment Charge process guide instead.</div>
+
+<h3>Child / Baby Seat</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Equipment not available / not provided</div>
+<p>If customer did not book in advance: no legal obligation to supply. If booked and prepaid but not available/provided: refund the charge. RFI to confirm if seat was provided, and if not, the reasons why.</p>
+
+<h3>Navigation System</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Equipment not available / not provided</div>
+<p>Separate unit or built-in (station installs SD card for built-in). Only applicable if customer booked navigation in advance and it was confirmed. UK: RFI to confirm if unit was provided if charge still on invoice. Overseas non-Greenway: RFI to confirm and whether customer was refunded. Refund charge if equipment not in rentable condition or prepaid but unavailable.</p>
+
+<h3>Winter Equipment</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Equipment not available / not provided</div>
+<p>Reserved on request basis — confirmed or failed within 48 hours of booking.</p>
+<table><tr><th>Country</th><th>Mandatory period</th></tr>
+<tr><td>Germany</td><td>1 November – 31 March</td></tr>
+<tr><td>Switzerland</td><td>15 November – 30 April</td></tr>
+<tr><td>Italy</td><td>15 November – 15 April</td></tr>
+</table>
+<p>If item unavailable at checkout: stations usually advise customer to purchase replacement and refund at end of hire. Refund if equipment not in rentable condition; if item prepaid but not utilised. Customer purchases mandatory equipment themselves: refund considered case by case with documentary evidence.</p>
+
+<h3>Security Device</h3>
+<div class="rc"><b>Reason Codes:</b> Charges and Identification &gt; Missing Items &gt; Security Device</div>
+<p>Check F7 notes and all documents (Delivery Docs, SOR, RA) first. Send RFI if no information available. Maintain if confirmed provided and not returned. Refund if station/F7 notes show item returned, or no docs + no RFI response.</p>
+
+<h3>Other Equipment</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Equipment not available / not provided</div>
+<p>UK: RFI if customer states faulty/poor quality, or charge still on invoice. Overseas: as above. Refund if equipment not in rentable condition or RFI confirms. If customer buys their own mandatory equipment that Europcar could not provide: considered case by case with documentary evidence.</p>
+</section>
+
+<!-- CS015 -->
+<section id="cs015">
+<h2><span class="doc-ref">CS015</span> Vehicle Category</h2>
+<p class="doc-version">v1.2 | 22.01.2025 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account. T&amp;C: we do not guarantee make and model, only the vehicle category. SIPP/ACRISS codes available on One:Net (Sipp Codes).</div>
+
+<h3>Auto to Manual</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Wrong category allocated</div>
+<p>UK: confirmed in Greenway — no RFI needed. Overseas Greenway: same. Overseas non-Greenway: RFI. Refund if Greenway shows manual was given when auto was booked (if cheaper per day). Refund full hire if customer didn't take vehicle due to only having an auto licence.</p>
+
+<h3>Vehicle Category — Downgrade</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Wrong category allocated</div>
+<p>As per T&amp;C: if booked category not available, we must offer a 1 category upgrade or contact customer before hire to discuss availability. UK: no RFI needed — confirmed in Greenway invoice screen. Refund via Greenway or form if Greenway shows downgrade.</p>
+
+<h3>Manual to Auto (Upgraded)</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Wrong category allocated</div>
+<p>If customer received a 1 category upgrade due to unavailability: no cost must be applied. UK: confirmed in Greenway. Decline refund if: customer booked compact manual and received compact automatic (same size, doesn't affect licence). Refund/discount (as voucher — not upgrade voucher) if: Greenway shows automatic was more than 1 tier above booked.</p>
+
+<h3>Confirmed Vehicle Not Provided</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Wrong category allocated</div>
+<p>UK: RFI to understand why confirmed vehicle not provided and if any department directly promised a specific vehicle. Refund/discount only if evidence confirms a specific model at a specific price was promised (contradicts T&amp;C of category-only guarantee).</p>
+
+<h3>Requested Make / Model</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Wrong category allocated</div>
+<p>We do not guarantee make or model, only the vehicle category. UK: RFI to understand why confirmed vehicle not provided. Also contact Reservations if customer claims they were told specific make/model. Refund if: no fleet, opening hours, or service issues caused the issue; no RFI response; Reservations incorrectly advised a specific brand vehicle was guaranteed.</p>
+
+<h3>Upgrade Charge</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Wrong category allocated</div>
+<p>One category upgrade at no cost (per T&amp;C if booked category unavailable). For disputes, do NOT refer to Car Group Charged guide. UK: RFI to confirm if booked category was available or customer chose upgrade. Provide money-off discount code (not upgrade voucher) for UK hires. Overseas: agree refund/discount with country (UK vouchers only valid for UK rentals).</p>
+</section>
+
+<!-- CS016 -->
+<section id="cs016">
+<h2><span class="doc-ref">CS016</span> Vehicle Condition</h2>
+<p class="doc-version">v1.2 | 15.04.2024 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account. Branch should complete a "ready for rent" check before every rental covering cleanliness, fluids, and tyres.</div>
+
+<h3>Cleanliness</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Poor vehicle condition</div>
+<p>Send RFI to branch/country to comment on condition and request documents. Only consider a refund if: customer had vehicle valeted and provides images showing it was unclean <b>within 24 hours of hire starting</b> AND provides a valet receipt. Report must be within 24 hours of hire starting; images and receipt must also be within 24 hours.</p>
+<p><b>Decline if:</b> No valet receipt; images taken outside 24-hour window; customer reports outside 24 hours; RFI response confirms vehicle was cleaned (with ready-for-rent document). If no RFI response and no valet receipt: send apology and confirm raised internally.</p>
+
+<h3>Fluid Levels</h3>
+<div class="rc"><b>Reason Codes:</b> Vehicle &gt; Vehicle Condition &gt; Fluid Levels</div>
+<p>Customer must provide a receipt if they purchased fluid during hire. RFI to branch to raise the issue and request feedback. Refund if: customer provides receipt; RFI confirms; no International RFI response in 3 days (receipt still required). Only consider a rental cost refund if missing fluid caused vehicle to break down or disrupted a vital part of their rental.</p>
+
+<h3>Mechanical / Electrical Problems</h3>
+<div class="rc"><b>Reason Codes:</b> During rental experience &gt; Issue with the vehicle &gt; Mechanical problem with vehicle / safety issue</div>
+<p>Check D&amp;C app first for warning lights. Send RFI to branch for "ready for rent" check evidence.</p>
+<p><b>Branch may decline if:</b> issue not reported during hire and no issues raised on following customer rentals.</p>
+<div class="grid2">
+<div class="rbox"><b>Refund when:</b> Financial inconvenience (receipts required). Vehicle undriveable — refund relevant days. RFI confirms compensation due. No RFI response.</div>
+<div class="mbox"><b>Decline when:</b> RFI confirms vehicle fully checked with no issues found. Problem not reported at any point during hire. Vehicle not taken off fleet.</div>
+</div>
+
+<h3>Vehicle Appearance</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Poor vehicle condition</div>
+<p>Check D&amp;C app images first — only send RFI if app cannot confirm. Refund if: RFI confirms; no UK RFI response within timeframes; no D&amp;C app details. Maintain if: station states no issue, or provides supporting documentation.</p>
+
+<h3>Tyres Condition</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Poor vehicle condition</div>
+<div class="wbox">Any damage claims relating to tyres must be allocated to the UK-Damage team.</div>
+<p>Check D&amp;C app for tyre warning lights. Send RFI to ascertain if tyre issues existed at checkout, if reported to station, and if station will refund. Decline if no evidence provided.</p>
+
+<h3>During Rental — Fluid Guidance</h3>
+<table><tr><th>Fluid</th><th>Guidance</th></tr>
+<tr><td>AdBlue</td><td>Warning light at ~1,500 miles remaining; amber at ~1,000 miles; red at ~500 miles (vehicle will fail to start). Options: visit nearest Europcar to top up, OR customer purchases and contacts CS with receipt for reimbursement.</td></tr>
+<tr><td>Oil</td><td>Contact telephone number on windscreen lower left. Options: refer to Halfords at Europcar expense, local branch tops up, or customer directed to top up themselves.</td></tr>
+<tr><td>Washer Fluid</td><td>Options: Halfords at Europcar expense, local branch tops up, or customer directed to top up themselves.</td></tr>
+</table>
+</section>
+
+<!-- CS017 -->
+<section id="cs017">
+<h2><span class="doc-ref">CS017</span> Caseworking Master Guide</h2>
+<p class="doc-version">v1.15 | 16.12.2025 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 days | UK RFI = 2 days | International RFI = 3 days</div>
+<div class="ibox"><b>Remit:</b> UK Caseworkers own any hire in the UK, for a UK resident, or placed through LONC75. Also own US booking source (WASC75) or Canadian booking source (YOWC75) hires in corporate countries. Reallocate US/CAN franchise country hires to the relevant ECI queue.</div>
+
+<h3>Authorisation / Refund Limits</h3>
+<table><tr><th>Amount</th><th>Authority needed</th></tr>
+<tr><td>£50 or under</td><td>Station Manager</td></tr>
+<tr><td>£51 – £150</td><td>Territory Manager</td></tr>
+<tr><td>£151 – £2,999</td><td>Regional Director</td></tr>
+<tr><td>£3,000+</td><td>Operations Director — <b>Kevin Rand</b></td></tr>
+</table>
+<div class="ibox"><b>Different thresholds for:</b> One-Way Charges, Days Charged, Vehicle Category (not upgrade charges), Excess Mileage:<br>
+&lt;£500 = process credit where fault identified | £500–£750 = Station Manager | £750–£1,000 = Territory Manager or RD | £1,000–£3,000 = Operations Director (Kevin Rand)</div>
+
+<h3>RFI Process — 5 Questions</h3>
+<ol>
+<li><b>Can you find the info/documentation to make a decision?</b> Yes → make decision. No → send RFI.</li>
+<li><b>Has the RFI been sent?</b> Yes → wait. No → send to station (ST) and Station Manager (SM) emails. Wait up to 2 working days.</li>
+<li><b>Did you receive a satisfactory response?</b> Yes → make decision. No → go to Q4. (An RFI that doesn't answer the question = no response.)</li>
+<li><b>Has the SLA expired?</b> Yes → escalate to Territory Manager (1 more working day). No → wait for SLA.</li>
+<li><b>Has the Territory Manager responded?</b> Yes → make decision. No → escalate to <code>outsourcesupport@europcar.com</code> for decision or escalation to Regional Directors.</li>
+</ol>
+<div class="wbox">Check <b>'My Pending RFI' queue every day</b>. Overseas RFI SLA = 3 working days — must be checked to prevent cases sitting in queue indefinitely. If out-of-office received, redirect to the contacts advised.</div>
+
+<h3>Systems to Check Before Sending RFI</h3>
+<p>Connexus, FileNet, KGS, Greenway, CRM Tool, SixPay, D&amp;C App. <b>Always check Connexus before any RFI</b> — if telemetry data is available on Connexus, no RFI needed.</p>
+
+<h3>Terminology</h3>
+<table><tr><th>Term</th><th>Definition</th></tr>
+<tr><td>Refund</td><td>Return of a portion or full amount of actual rental cost taken by Europcar (e.g. days charged, oil, taxi costs)</td></tr>
+<tr><td>Refund – lack of documented evidence</td><td>No supporting documentation uploaded to Salesforce for additional ancillaries/products</td></tr>
+<tr><td>Gesture of Goodwill (max £25)</td><td>Payment without admitting liability. ALL gestures of goodwill, regardless of amount, must be sent to <code>rachel.palmer@europcar.com</code> for approval — even if previously approved by station.</td></tr>
+</table>
+
+<h3>Tour Operator Billing Queries</h3>
+<p>Email <code>tato.invoicequery@europcar.com</code> and <code>tato.queryteam@europcar.com</code>. Keep case open and respond once update received.</p>
+
+<h3>Call Record Requests</h3>
+<p>Email <code>outsourcesupport@europcar.com</code> with: time and date of call, agent name (if known), number customer called from, information required. Outsource support team will reach out to the appropriate outsourcer and respond with findings.</p>
+
+<h3>Returned Cases</h3>
+<table><tr><th>Reopening</th><th>Handler</th></tr>
+<tr><td>1st</td><td>More experienced case handler (not original agent) — review initial response, provide detailed second response</td></tr>
+<tr><td>2nd</td><td>Senior team member/supervisor — reviews with agent, documents feedback, sends final resolution</td></tr>
+<tr><td>3rd</td><td>Team Leader or Manager sends final resolution</td></tr>
+</table>
+
+<h3>Customer Claims of Fraud / Misselling</h3>
+<p>If customer states their documentation has been altered, was not signed by them, or any suggestion of fraud: advise customer to report to <b>Action Fraud</b> and their bank. Create a case and allocate to Executive Relations queue (monitored by Outsourcer Support Team). Provide full contact details in case comments. Reason Codes: After Rental &gt; Data Protection &gt; Restrict or Object Use of my Data.</p>
+<div class="wbox"><b>Europcar Group Contact 2:</b> Technical dummy account for Active Directory purposes only — must NOT be used or associated with any cases. Causes data integrity issues.</div>
+</section>
+
+<!-- CS018 -->
+<section id="cs018">
+<h2><span class="doc-ref">CS018</span> Refunds Master Guide</h2>
+<p class="doc-version">v1.7 | 04.08.2025 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> 2 working days for authorisation responses</div>
+
+<h3>Authorisation Process</h3>
+<p>New caseworker refund limit is set automatically in Greenway — check with Team Leader. To process a refund over your limit: send internal email from CRM tool to <code>csauthorisations@europcar.com</code> using the <b>UK – Case RFI – Blank Template</b> (changes case status to 'Waiting for Internal Information'). Response within 2 working days — case status updates to 'Answered'. If declined: review, investigate further, resubmit to csauthorisations.</p>
+
+<h3>Key Considerations Before Processing in Greenway</h3>
+<table><tr><th>Scenario</th><th>Rule</th></tr>
+<tr><td>Recharge over £200</td><td>Debit cards: NOT allowed. Credit card: allowed.</td></tr>
+<tr><td>VPAY card on Greenway</td><td>Cannot process refund — raise a BACS request instead.</td></tr>
+<tr><td>Australia / New Zealand</td><td>Do NOT process on Greenway — use a refund form.</td></tr>
+<tr><td>Franchise stations</td><td>Cannot process on Greenway — use a refund form.</td></tr>
+</table>
+<p><b>Refund/recharge process:</b> Greenway refunds the end-of-rental charges in full then debits the adjusted amount as a new transaction. Prepayment is not affected. If refunding from prepaid amount: advise customer it may appear as pending debit before showing as credit.</p>
+
+<h3>Days Charged Refund in Greenway (DEBCRED)</h3>
+<ol>
+<li>Invoice Inquiry → find invoice → F12+F → Fast Path → type DEBCRED → Enter.</li>
+<li>F12+N → Source field → F5 → select source (HQ) → Enter.</li>
+<li>Tab → F5 → select category → Enter. Tab → F5 → select detail → Enter.</li>
+<li>Tab → add brief comment → Enter → Page Down.</li>
+<li>Go to Basic Rental → F12+E → Page Up → amend check-out/check-in details to correct details → F4.</li>
+<li>F12+N → Enter. Check original and new amounts match. F12+N again on Allowance/surcharge to verify days changed.</li>
+<li>Account Invoice: proceed to Create Invoice step. Driver Invoice: Credit Card popup → enter through to MoP screen → F4.</li>
+<li>Y to Create Invoice → Enter. 0 to Print Invoice → Enter. F8 to main menu.</li>
+</ol>
+
+<h3>Types of Refunds in Greenway</h3>
+<table><tr><th>Type</th><th>Notes</th></tr>
+<tr><td>Days Charged</td><td>Amend check-out/check-in details via DEBCRED</td></tr>
+<tr><td>Vehicle Category</td><td>DEBCRED → amend vehicle category line</td></tr>
+<tr><td>Fuel</td><td>DEBCRED → amend fuel line</td></tr>
+<tr><td>Coverages / Equipment</td><td>DEBCRED → amend relevant line</td></tr>
+<tr><td>Mileage</td><td>DEBCRED → amend mileage line</td></tr>
+<tr><td>Allowance</td><td>Used for partial refund amounts</td></tr>
+<tr><td>Releasing stuck amount</td><td>Available in Greenway</td></tr>
+<tr><td>Applying / Amending voucher or BHPO</td><td>Available in Greenway</td></tr>
+<tr><td>Applying a Coupon</td><td>Available in Greenway</td></tr>
+<tr><td>No Show / Cancellation Fee refund</td><td>Available in Greenway</td></tr>
+<tr><td>Changing Method of Payment</td><td>Available in Greenway</td></tr>
+</table>
+
+<h3>IT Service Management Suite (FINQ)</h3>
+<p>All FINQ requests must be raised by a TL/SME. All gestures of goodwill must go through CS authorisations regardless of amount.</p>
+<p>To create: Open new financial query. Set: Financial impact = "Less than 10k euros", Assignment group = "Cash Application/Credit Card", Request = CA - Cash Application - Other. Include RA number, Case number, and amount in Description. Attach FINQ form. Submit. Track in "My financial queries". If SSC requires more info, submit via "submit info" button then hit submit.</p>
+<p>Once FINQ created and sent for SSC review, complete the <b>FINQ tickets completed form</b>. For receipt, ask the TL who raised the ticket.</p>
+
+<h3>Refund Forms</h3>
+<p>Used when Greenway refund is not possible (franchise, AU/NZ, recharge over £200 on debit card). Follow refund form training. Form must include all relevant details. Sent to SSC Portugal for processing.</p>
+</section>
+
+<!-- CS020 -->
+<section id="cs020">
+<h2><span class="doc-ref">CS020</span> Insistence</h2>
+<p class="doc-version">v1.3 | 16.12.2025 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account. For all UK hires: documents must be on KGS or Customer First after 5 working days from hire start. Decision on 6th working day if not present.</div>
+<p>Used when customer states they were forced to take an upgrade, coverage, equipment, or full tank option they did not want.</p>
+
+<h3>Car Upsell</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Pick up experience &gt; Aggressive sales / insistence</div>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> RA and SOE signed and completed. Overseas: country confirms with their signed RA.</div>
+<div class="rbox"><b>Refund when:</b> UK — document not present or not completed correctly. Rental station confirms refund. Overseas — no RFI response within SLA.</div>
+</div>
+
+<h3>Coverage</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Pick up experience &gt; Aggressive sales / insistence</div>
+<p><b>US/Canadian customers:</b> Only Third Party Liability included by default (CDW/THW through credit card). If their card doesn't have required coverage, station will not release vehicle without CDW. We do NOT accept third-party waiver products purchased online via broker. If customer provides proof their credit card has sufficient CDW coverage: refund CDW and TW coverages.</p>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> Charge on reservation. RA and SOE completed and signed correctly. Overseas: country confirms with signed RA.</div>
+<div class="rbox"><b>Refund when:</b> UK — RA/SOE not correctly completed. US/Canadian customer with stand-liable waiver, booking via US site, and proof provided. No documents within 5 working days (decide on 6th). Overseas — no RFI response within SLA.</div>
+</div>
+
+<h3>Equipment</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Pick up experience &gt; Aggressive sales / insistence</div>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> Customer signed to accept equipment charge. Equipment present on original reservation (check Greenway Res Screen 6,1). If mandatory per country T&amp;C — no RFI required.</div>
+<div class="rbox"><b>Refund when:</b> RFI confirms must be refunded. No RFI response within SLA. No documents showing item was signed for and not on original booking.</div>
+</div>
+
+<h3>Full Tank</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Pick up experience &gt; Aggressive sales / insistence</div>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> All documentation shows vehicle not returned full, RA and SOE signed, no supporting evidence from customer.</div>
+<div class="rbox"><b>Refund when:</b> Lack of documentation. Europcar evidence shows vehicle was returned full. Customer provides evidence vehicle was refuelled. No UK RFI response within 2 days. No International RFI within 3 days.</div>
+</div>
+</section>
+
+<!-- CS021 -->
+<section id="cs021">
+<h2><span class="doc-ref">CS021</span> Coverage Master Guide</h2>
+<p class="doc-version">v1.4 | 16.12.2025 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account. Bundle product: SOE not required to maintain any products within that bundle.</div>
+
+<h3>Additional Driver</h3>
+<div class="rc"><b>Reason Codes:</b> Charges and Identification &gt; Coverage &gt; Additional Driver</div>
+<p>Required per T&amp;C for each additional driver. Cost includes the Basic Protection Package — amount confirmed in Tariff Guide. UK: no RFI — docs will be on KGS/CRM Tool. Overseas only for docs needed. If additional driver fee added mid-rental: Greenway cannot part-charge a daily rate coverage — applies fee for full rental duration. Some stations can apply an allowance to compensate; check if allowance is present before raising a dispute.</p>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> Signed RA/SOE confirm additional driver accepted. On original reservation.</div>
+<div class="rbox"><b>Refund when:</b> Not on reservation and no signed documents. No docs within 5 working days (UK). No overseas RFI response.</div>
+</div>
+
+<h3>CDW / THW — Stand Liable Waiver</h3>
+<p>If customer signs a stand-liable waiver (declines CDW/THW), they accept full financial liability for any damage or theft. This is valid only if properly signed. If US/Canadian customer provides proof their credit card includes CDW coverage and they signed stand-liable: refund CDW and TW.</p>
+
+<h3>Cross-Border Coverage</h3>
+<p>Connexus automatically checks rentals when a vehicle enters Northern Ireland or Republic of Ireland. Automated process: checks if relevant charge applied (Cross Border or Europdrive charge), checks for existing VE103B certificate, sends email/SMS to customer, auto-creates VE103B certificate if needed, applies relevant charge in Greenway, adds notes to RA.</p>
+
+<h3>Lack of Coverage Info</h3>
+<p>If customer contacts us unhappy about not being told about coverage options at checkout: investigate using RA and SOE. If documents show coverage was offered and declined: maintain. If no clear documentation: consider a discount code for future hire as a gesture of goodwill.</p>
+</section>
+
+<!-- CS022 -->
+<section id="cs022">
+<h2><span class="doc-ref">CS022</span> Booking Master Guide</h2>
+<p class="doc-version">v1.3 | 03.02.2025 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account. Cancellation/No-show fees for Business Accounts (BHPO) and Tour Operators are NOT handled by CS — refer them to their billing department.</div>
+
+<h3>Cancellation Charge</h3>
+<div class="rc"><b>Reason Codes:</b> Pre pickup &gt; Pre pickup &gt; Cancellation Fees</div>
+<ul>
+<li><b>Prepaid:</b> Free cancellation if more than 48 hours before hire start. Less than 48 hours: refund less cancellation charge (per Tariff Guide). No cancellation + no pickup = prepayment refunded less No Show Charge.</li>
+<li><b>Pay on arrival (card details provided):</b> Vehicle guaranteed until close of business on pickup day. Less than 48 hours notice to cancel: cancellation charge applies (Tariff Guide).</li>
+<li><b>Non-refundable bundles:</b> Fees apply regardless of timing.</li>
+<li><b>Cancelled at station on arrival by branch:</b> This is a Turndown → full refund, no cancellation fee.</li>
+</ul>
+<h4>Greenway statuses:</h4> CP = cancelled prepaid | CC = cancelled, not prepaid. Ctrl+E on res screen shows who cancelled and when.
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> Less than 48 hours notice before cancellation.</div>
+<div class="rbox"><b>Refund when:</b> Station confirms refund. Should have been a Turndown. No RFI response within 2 days. Greenway shows cancelled with more than 48 hours notice. Duplicate booking — hired on the other booking.</div>
+</div>
+<p>Refund for UK: via form, charged back to rental station. International: via form, charged back to country.</p>
+
+<h3>No-Show Fees</h3>
+<div class="rc"><b>Reason Codes:</b> Pre pick up &gt; Pre pick up &gt; No-Show Fees</div>
+<p>No-show process is automated — reservation status changes to NS automatically 3 days after expected pickup. Can also be manually set. Check status on reservation screen next to Res number. Ctrl+E to see how NS was applied.</p>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> Customer/station confirms they did not arrive. Flight delayed but no flight number on reservation and station already closed.</div>
+<div class="rbox"><b>Refund when:</b> Station confirms must refund. Station cannot confirm/deny and no documented evidence. No RFI response within SLA. Customer had duplicate booking and hired on other booking. Station confirmed no vehicle due to fleet constraints.</div>
+</div>
+
+<h3>Failed Reservation Confirmation</h3>
+<div class="rc"><b>Reason Codes:</b> Pre pickup &gt; Pre pickup &gt; Reservation failed by Europcar (Automatic)</div>
+<p>Ctrl+E on reservation screen shows status history: R=On Request, F=Failed, CF=Confirmed. SixPay: money only debited when confirmed. If on request and cancelled = only held as pending (released to customer). If Cybersource: check with Card Processing whether payment was received during on-request status. If booking was not failed within 48-hour window: send apology for delay.</p>
+
+<h3>Turndown</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Rental refused at Pickup &gt; Rental refused by Europcar</div>
+<p>Status = TD on reservation. Ctrl+E shows who actioned it. Prepaid booking changed to TD must be refunded in full. Check payment systems to confirm if refund already processed. Max liability per T&amp;C Section 23 = value of hire and ancillary services reserved.</p>
+
+<h3>Duplicate Prepayment</h3>
+<div class="rc"><b>Reason Codes:</b> Pre pickup &gt; Pre pickup &gt; Duplicate Prepayment (after booking)</div>
+<p>Causes: system debited twice; user pressed 'back' and committed again creating duplicate reservations. Check CRM tool for duplicate reservations under Driver ID. Press F12+P on res screen to confirm if SixPay (can check directly) or Cybersource (contact Card Processing). Refund whichever charge is not attributable to the intended rental. Only one code per customer — do not offer discount codes for third-party/TO bookers.</p>
+<div class="grid2">
+<div class="mbox"><b>Decline refund when:</b> Only one payment exists (ask for proof). Already refunded. Only authorised (use SixPay receipt). Payment relates to another booking.</div>
+<div class="rbox"><b>Refund when:</b> Duplicate confirmed in SixPay/Cybersource. Two bookings for same date/time. Same charge applied twice for same product.</div>
+</div>
+
+<h3>Prepayment Refund</h3>
+<div class="rc"><b>Reason Codes:</b> Pre payment &gt; Pre payment &gt; Prepayment refund request following cancellation</div>
+<p>Check reservation status: CC (cancelled, not prepaid) | CP (cancelled prepaid) | TD (turned down) | NS (no show) | CO (checked out) | R (on request) | CF (confirmed) | S (sold). If status is TD: refund should have happened automatically — check payment systems. If CP and SixPay: check if refund went through. If CP and Cybersource: contact Card Processing to confirm. Light Bundle package bookings: non-refundable, except for duplicate bookings, fleet/VeriCheck turndowns.</p>
+</section>
+
+<!-- CS024 -->
+<section id="cs024">
+<h2><span class="doc-ref">CS024</span> Deposit</h2>
+<p class="doc-version">v1.3 | 01.10.2024 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> 5 working days complaint | 2 working days UK RFI | 3 working days International RFI</div>
+<div class="wbox">Corporate booking → UK-Key Account. Deposit policy applicable for: Belgium, France, Germany, Italy, Portugal, Spain, United Kingdom. For other countries: different policy applies.</div>
+
+<h3>Deposit Process Overview</h3>
+<p>At rental location: deposit is <b>blocked (not debited)</b> on the nominated payment card at pick-up time. If Online Check-In: blocked within 48 hours prior to pick-up. This reduces customer's available card balance. If customer prepaid: total outstanding hire amount + deposit are blocked. Pre-auth released after vehicle returned and final invoice generated.</p>
+
+<h3>Authorisation Not Released</h3>
+<div class="rc"><b>Reason Codes:</b> Deposit &gt; Deposit not released / refunded after rental</div>
+<p>Used when customer states the amount held at hire start has not been released within <b>3–10 working days</b>.</p>
+<h4>Process:</h4>
+<ol><li>Check Greenway invoice — confirm vehicle returned and invoice generated.</li><li>Check SixPay — search for the authorisation using card first 6 and last 4 digits + date range. Confirm authorisation matches amount held and transaction references.</li><li>If auth shows as outstanding: contact Card Processing/SixPay to request release.</li><li>Advise customer: banks may take 3–10 working days to release from their end.</li></ol>
+
+<h3>Deposit Amount</h3>
+<div class="rc"><b>Reason Codes:</b> Deposit &gt; Deposit issue after return</div>
+<p>Deposit amount varies depending on vehicle supplied and whether booked through an account/TO. Cross-reference on Greenway or RA before confirming amount. Deposit policy is in T&amp;C (advised during booking process and in email confirmation).</p>
+
+<h3>Deposit Debited</h3>
+<p>If deposit was debited (not just blocked) and vehicle returned: check SixPay and Greenway to confirm. If incorrectly debited: process refund via Greenway or form as appropriate.</p>
+
+<h3>Duplicate Deposit</h3>
+<p>Check SixPay for duplicate authorisations using card details and date range. If two separate authorisations found for same amount/rental: contact Card Processing to release the duplicate. Refund if duplicate was actually charged.</p>
+</section>
+
+<!-- CS025 -->
+<section id="cs025">
+<h2><span class="doc-ref">CS025</span> Fuel Procedures</h2>
+<p class="doc-version">v1.4 | 05.11.2024 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account.</div>
+
+<h3>Fuel Policy</h3>
+<table><tr><th>Option</th><th>Details</th></tr>
+<tr><td>Full Tank Option</td><td>Pre-auth taken for full tank cost + deposit at pickup. Customer returns with any fuel level — no refuelling charge. If returned fully fuelled: full tank option is NOT charged; pre-auth released.</td></tr>
+<tr><td>Full-to-Full</td><td>Vehicle provided full. Customer returns full. If not returned full: charged for missing fuel.</td></tr>
+</table>
+
+<h3>Mileage Rules</h3>
+<table><tr><th>Miles driven</th><th>Rule</th></tr>
+<tr><td>60 miles or less</td><td>Any rental that drove more than 7 miles: no refuelling surcharge added. If not full: charged for fuel used (pence per litre = average UK pump price + uplift).</td></tr>
+<tr><td>More than 60 miles</td><td>Tank considered full when needle at maximum (8/8ths). If between 2 graduations: calculate to nearest graduation. If exactly in middle: use the higher graduation (in customer's favour).</td></tr>
+</table>
+
+<h3>EV Vehicles</h3>
+<p>Vehicle must be provided at minimum <b>80% charge</b> and returned at minimum <b>80% charge</b>. Charge level shown on Connexus.</p>
+
+<h3>Refuelling Surcharge Dispute</h3>
+<div class="rc"><b>Reason Codes:</b> After rental &gt; Invoice dispute - general &gt; Fuel charges dispute</div>
+<p>Maintain with: KGS documents, D&amp;C App, Connexus. Refund if rental required less than 7 litres refuelling upon return.</p>
+
+<h3>Fuel Charge Dispute</h3>
+<div class="rc"><b>Reason Codes:</b> After rental &gt; Invoice dispute - general &gt; Fuel Charges Dispute</div>
+<h4>Systems to check in order:</h4>
+<ol><li>Signed RA and check-in documents</li><li>D&amp;C App — photographs of fuel gauge at return/collection</li><li>CRM tool for SOR (Statement of Return) via "Retrieve all Docs"</li><li>Connexus — telemetry on vehicle return and pick-up (export as PDF)</li></ol>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> KGS docs, D&amp;C App, Connexus confirm missing fuel. Signed RA shows customer accepted fuel charge.</div>
+<div class="rbox"><b>Refund when:</b> No signed RA/check-in documents/D&amp;C documents. D&amp;C App shows vehicle missing fuel on checkout. Connexus shows vehicle full on return. Customer provides dated/time-stamped receipt showing litres put in before return contradicting Connexus/documentation.</div>
+</div>
+<table><tr><th>Scenario</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Maintain (Connexus data available)</td><td>Charges upheld: Connexus Justified</td><td>Customer / Return Station</td></tr>
+<tr><td>Refund (no Connexus data)</td><td>Refund – lack of documented evidence</td><td>Pickup Station</td></tr>
+</table>
+
+<h3>Fuel Cost Per Litre Dispute</h3>
+<p>Check signed RA — must detail cost per litre. For corporate: check RA matches account agreement. Maintain if signed RA present. Refund difference if no signed RA or amount doesn't match corporate agreement. Apply as allowance (not full refund) to set cost per litre to average UK pump cost.</p>
+
+<h3>Fuel Missing at Pick-Up</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Vehicle &gt; Fuel missing at pickup</div>
+<p>Check: CRM/KGS documents, Greenway F7 notes (recorded at checkout?), D&amp;C App (missing fuel on delivery?), Connexus (fuel levels at start). If no info: send RFI (2 working days SLA). Refund if customer provides evidence or systems confirm missing fuel at checkout.</p>
+
+<h3>Manual Fuel Calculation Workaround</h3>
+<p>Screen 17 (Helpdesk) → View Details = V. Shows how many litres for vehicle to travel 100 miles. Formula: litres per 100 miles ÷ 100 × distance driven = litres. Example: 8/100 × 146 = 11.68 litres.</p>
+</section>
+
+<!-- CS026 -->
+<section id="cs026">
+<h2><span class="doc-ref">CS026</span> Method of Payment</h2>
+<p class="doc-version">v1.1 | 15.04.2024 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> 5 working days complaint | 2 working days UK RFI | 3 working days International RFI</div>
+<div class="wbox">Corporate booking → Key Account list.</div>
+
+<h3>Change Mean of Payment</h3>
+<div class="rc"><b>Reason Codes:</b> After rental &gt; Document request &gt; Incorrect billing data</div>
+<p>Customer requests payment transferred from one card to another. We cannot change MoP on invoice if card is not present on Greenway. For overseas: RFI only — the country makes the final decision. Process on Greenway if card is present.</p>
+
+<h3>Duplicate Billing</h3>
+<div class="rc"><b>Reason Codes:</b> After rental &gt; Document request &gt; Incorrect billing data</div>
+<p>Customer claims billed twice for same reservation, rental, product, or service. Also used if rebilled due to invoice amendment, or if charge from non-UK country cannot be located and no RFI response received.</p>
+<table><tr><th>Scenario</th><th>Action</th></tr>
+<tr><td>Voucher issue (TO charged + Europcar charged)</td><td>Request customer's confirmation/voucher showing product included. If confirmed: move product to TO voucher. If no evidence: refer back to TO.</td></tr>
+<tr><td>Duplicate product (UK)</td><td>Check Greenway invoice. If duplicated: refund duplicate. Two similar coverages (e.g. Premium + Medium Protection) cannot both be charged.</td></tr>
+<tr><td>Duplicate reservations</td><td>Refund one reservation. Turn down if possible for auto-refund.</td></tr>
+<tr><td>Unknown charge (overseas)</td><td>Send RFI. If still unidentified after full international process: refund and keep reason code as Duplicate Billing.</td></tr>
+<tr><td>TO cancel/rebill causing FX loss</td><td>Always reimburse customer for bank charges/fees incurred. Process refund manually to avoid further disruption.</td></tr>
+</table>
+<div class="grid2">
+<div class="mbox"><b>Maintain when:</b> Charge is for additional product and not duplicated. Signed documentation confirms product accepted. TO booking — product not on voucher.</div>
+<div class="rbox"><b>Refund when:</b> Confirmed duplicate charge. Duplicate reservations. Product present on TO voucher. Charge cannot be identified.</div>
+</div>
+
+<h3>Voucher Coverage</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Pickup experience &gt; Voucher not applied</div>
+<p>Customer's card charged instead of voucher/account. Common causes: incorrect MoP on reservation; full voucher details not entered by station; station booked customer as walk-in hire; some partner countries have problems applying full credit voucher.</p>
+<p>UK: if voucher present on reservation → apply to invoice. UK: if voucher details provided via email (not on Greenway) → can apply to invoice. Overseas: if voucher not on Greenway → RFI to country (they apply it). Closing: applying voucher is not recorded as a "Refund" — funds move from card to voucher, no loss to business. Outcome = Apology | Root Cause = Pickup Station / System error.</p>
+</section>
+
+<!-- CS027 -->
+<section id="cs027">
+<h2><span class="doc-ref">CS027</span> Unable to Rent</h2>
+<p class="doc-version">v1.3 | 15.04.2024 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate booking → UK-Key Account queue.</div>
+
+<h3>Deposit Refused</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Rental refused at pickup &gt; Mean of payment declined at pickup</div>
+<p>Customer refused to pay deposit or had insufficient funds. Deposit policy is in T&amp;C and advised during booking. Advise customer to send RFI to confirm reason, there may have been another reason for refusal. Refund prepayment in full (UK); international: in full or per country T&amp;C.</p>
+
+<h3>Driving Licence</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Rental refused at pickup &gt; Driver document issues at pickup</div>
+<p>Customer did not have sufficient licence documents or licence does not meet requirements. Full details on website or One:Net Working Instruction 001. Send RFI to confirm reason (may have been another reason). Refund prepayment in full (UK); international: full or per country T&amp;C.</p>
+
+<h3>Failed Authentication</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Rental refused at pickup &gt; Driver document issues at pickup</div>
+<p>Customer failed identification check at rental station. <b>For UK residents: driver address qualification is mandatory regardless of method of payment.</b> Full details on One:Net Working Instruction 001 Identification checks. Customer cannot hire unless evidence of current address is provided. Refund: prepayment in full (UK), as we would not know the full reasons the customer failed the check.</p>
+
+<h3>Invalid Mean of Payment</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Rental refused at pickup &gt; Mean of payment declined at pickup</div>
+<table><tr><th>Country</th><th>Requirement</th></tr>
+<tr><td>UK</td><td>Valid debit (UK resident) or credit card in their own name</td></tr>
+<tr><td>Overseas</td><td>Valid credit card in their name</td></tr>
+</table>
+<p>Website advises customer to present the same card used for payment at the rental station. Send RFI to confirm reason (may have been another reason). Refund prepayment in full (UK); international: per country T&amp;C.</p>
+
+<h3>Watchlisted</h3>
+<div class="rc"><b>Reason Codes:</b> Pickup and return time &gt; Rental refused at pickup &gt; Rental refused by Europcar</div>
+<p>Customer watchlisted by any Greenway country → prevents hiring from any corporate country until removed.</p>
+<table><tr><th>Watchlist reason</th><th>UK Action</th><th>Overseas Action</th></tr>
+<tr><td>Fails to Pay</td><td>Check RA (file reference). Refer to Consumer Collections. Send RFI to query/dispute. Reach out to outsourcesupport before referring to security.</td><td>Can discuss. RFI to query. Refer to country's collections or CS.</td></tr>
+<tr><td>Any other reason</td><td>Cannot discuss. <b>Email only</b> to <code>uk.security@europcar.com</code>. Reach out to outsourcesupport for approval first.</td><td>Refer customer to country that placed them on watchlist.</td></tr>
+</table>
+<p>If prepaid booking refused due to watchlist: refund prepayment in full (UK) or per country T&amp;C (international). Closing: Outcome = Explanation (watchlist only) or Refund | Root Cause = Customer or Standard process/rule.</p>
+</section>
+
+<!-- CS028 -->
+<section id="cs028">
+<h2><span class="doc-ref">CS028</span> Bespoke Processes</h2>
+<p class="doc-version">v1.4 | 05.08.2025 — Owner: T&amp;Q Team</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+<div class="wbox">Corporate bookings → UK-Key Account queue.</div>
+
+<h3>RentalCars</h3>
+<p>Working RentalCars cases is the same as standard CS cases — same SLAs, full detailed responses. Check method of payment: CS does NOT manage <b>RentalCars PPB bookings</b>. Reallocate PPB cases: Case Owner = After Rental ABAI | Case Origin = Email-ECI-CS-OnlineSupport.</p>
+
+<h3>Resolver Cases</h3>
+<p>Resolver = free independent online complaints service. Resolver emails look like: <code>customer.customer@resolver.co.uk</code> — customer's email address is their own. When responding: always use <b>reply button</b> on CRM tool case (not 'send an email') to retain resolver email address. Same decision-making as normal cases. Customer can escalate to CS Manager or MD via Resolver — case would then go to UK teams. Forwarding to another country/department: advise customer before cancelling the case.</p>
+
+<h3>Stars Customers</h3>
+<p>Identified in CRM tool at top of case and in Driver Account — 'Customer Cluster' field shows if Stars customer. Same SLAs as all customers. Only difference: <b>2-hour grace period</b> (UK hires only). If charged additional day but returned within 2-hour grace period: must process a refund.</p>
+
+<h3>Tour Operators</h3>
+<p>Same as standard CS cases — same SLAs, full detailed responses. Mandatory processes:</p>
+<ul>
+<li><b>GDPR:</b> RentalCars emails — no need to send DP email to them (they are our customer). Third party that is not the TO on reservation or driver: do not share rental details — refer them to their TO.</li>
+<li><b>Reply button:</b> Always press reply on CRM tool (retains TO reference number in subject). 'Send an email' button will NOT include TO reference → causes returned cases.</li>
+<li><b>Documents:</b> Must be present, correctly completed, and attached. If not available: process refund.</li>
+<li><b>Unused days:</b> No refund for unused days. Exception: medical proof supplied (valid) = credit for unused days; mechanical fault/breakdown = credit for unused days. Chargeback = deduction from future TO invoice (note the amount in reply and case comments).</li>
+<li><b>Voucher amendments:</b> Do NOT amend voucher days or car categories on Greenway on your own.</li>
+<li><b>Damage/Fines:</b> Allocate Damage to UK-Damage; Fines to UK-Fine.</li>
+<li><b>Rate issues:</b> Refer TO to their billing team or account controller.</li>
+<li><b>Cancel/No-show fee refund:</b> Email <code>tato.invoicequery@europcar.com</code> and <code>tato.queryteam@europcar.com</code>. Advise TATO operator that TATO query team will be in touch. Cancel the case.</li>
+</ul>
+
+<h3>Airline Bookings (Meili)</h3>
+<p>Global airline partnerships use "Meili" booking tool (bridge between Greenway and airline website). These are treated as <b>direct bookings</b>. Handle all queries as you would a direct customer. Most requests are for booking cancellations.</p>
+<p><b>Partner airlines:</b> Lufthansa, Finnair, Ethiopian Airlines, Croatia Airlines, Scandinavian Airlines (SAS), Travelstart, FreeNow, Rotana Hotels, LATAM Airlines, Travelwings, Blue Islands, Vipper, Destinia, Renfe.</p>
+
+<h3>ADAC</h3>
+<p>German automobile association — large car hire volume partner. ADAC only offers a <b>zero-excess product</b> in the UK → Europcar presells Premium Insurance as part of the package. As extra benefit: <b>1 free additional driver</b> included in the ADAC package. Greenway cannot bundle/include the free additional driver. If account charged 1 additional driver: this should have been free → <b>must process a refund</b>.</p>
+</section>
+
+<!-- CS029 -->
+<section id="cs029">
+<h2><span class="doc-ref">CS029</span> Discount Codes</h2>
+<p class="doc-version">v1 | 25.04.2023 — Owner: Fiona McCreedy</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 working days | UK RFI = 2 working days | International RFI = 3 working days</div>
+
+<h3>When to Offer Discount Codes</h3>
+<ul>
+<li><b>New cases:</b> Only for service, incorrect charges, or vehicle complaints. If customer is disputing a charge: that charge must be refunded — code is not a substitute.</li>
+<li><b>Returned cases:</b> If customer was previously refunded and comes back asking for compensation — codes can be offered.</li>
+<li>A code can also be used to retain a customer.</li>
+</ul>
+<div class="wbox"><b>WARNING:</b> Do NOT offer these codes to customers who book via a Third Party Booker, Tour Operator, or Travel Agent. Codes are only for customers who book direct.</div>
+
+<h3>Discount Code Values</h3>
+<table><tr><th>Discount</th><th>Code</th><th>Restrictions</th></tr>
+<tr><td>5% off next hire</td><td><b>54685255</b></td><td>None</td></tr>
+<tr><td>10% off next hire</td><td><b>54685260</b></td><td>None</td></tr>
+<tr><td>15% off next hire</td><td><b>54685272</b></td><td>Cannot be used for Selection or Luxury Fleet</td></tr>
+</table>
+<ul>
+<li>Do not offer more than one code to a customer.</li>
+<li>Maximum 15% off a future hire (or 10% for Selection fleet).</li>
+<li>Not for Privilege customers.</li>
+<li>T&amp;C for codes must be included in the email response.</li>
+</ul>
+<h4>Closing:</h4>
+<table><tr><th>Reason for code</th><th>Outcome</th><th>Root Cause</th></tr>
+<tr><td>Compensation</td><td>Apology</td><td>Whoever is at fault</td></tr>
+<tr><td>Commercial gesture</td><td>Explanation</td><td>Customer</td></tr>
+</table>
+</section>
+
+<!-- CS030 -->
+<section id="cs030">
+<h2><span class="doc-ref">CS030</span> Supporting Systems</h2>
+<p class="doc-version">v1.4 | 03.12.2025 — Owner: Peter Grummitt</p>
+
+<h3>KGS — Document Management System</h3>
+<p>URL: <code>https://www.kgsltd.org/national/login.aspx</code></p>
+<p>Enter UK rental agreement number → Search → click image to open → 'Fit to width' to display readable format. Shows all scanned rental documents (RA, SOR, AOP, etc.).</p>
+
+<h3>SixPay — Payment System</h3>
+<p>URL: <code>https://www.3cport...</code> — Select "please log in to begin".</p>
+<table><tr><th>Field</th><th>Value</th></tr>
+<tr><td>Customer ID</td><td>EuropcarEurope</td></tr>
+<tr><td>Username</td><td>ECGB-CUSTSERV</td></tr>
+<tr><td>Password</td><td>Europcar2026!</td></tr>
+</table>
+<p>For password issues: email <code>outsourcesupport@europcar.com</code></p>
+<h4>Searching authorisations:</h4> Hover over Payment Gateway → Authorizations. Enter first 6 digits of card, last 4, and date range. Select "custom" on date dropdown for specific range. Match authorisation to amount on customer's account and transaction references.
+<h4>Searching transactions:</h4> Hover over Payment Gateway → Transactions. Can also filter by reversal, charge, etc. Select "advanced" to show rental reference numbers.
+<h4>IBatch Transactions:</h4> Use ibatch selection to find charges taken by ibatch system.
+<h4>Reports (manual search):</h4> My Services → My Reports → Utility → Credit card search → Change Query option to "Transaction date" → enter first 6 and last 4 of card → run with relevant dates → View Report.
+<h4>Sending a receipt from SixPay to customer:</h4> Find authorisation or transaction → green tick appears on left → click tick → receipt appears → click 'email receipt' → enter customer's email → click 'send'. (Does NOT work for charges taken outside Greenway.)
+
+<h3>SAFO — Fines Documentation System</h3>
+<p>URL: <code>https://www.safosistemi.it/GEM/</code> — Click UK flag → enter username and password → Select "search" from right-hand options → set Status = "all" → search using available fields. View invoice copies, Notice to Owner, and transfer of liability letters. Click into a fine entry → scroll down → click email sent to customer to view/download attachments.</p>
+
+<h3>Delivery &amp; Collection (D&amp;C) App</h3>
+<p>URL: <code>https://europcar.fieldmobility.com/Europcar/#!/Logon</code> — Enter personal username and password. For login issues: contact BSTQ.</p>
+<p>Table data → view data editor → search by Registration or RA → brings up condition and movement PDFs. Select "movement details" or "vehicle preparation" from dropdown. Click icon to open PDF.</p>
+<h4>Decisions the D&amp;C App enables without RFI:</h4>
+<ul>
+<li><b>Fuel disputes:</b> View dashboard/fuel gauge at delivery and collection. Compare fuel level on delivery vs collection. Calculate runner use based on distance from station.</li>
+<li><b>Mileage charges:</b> Photos of odometer as evidence. Cross-reference against Greenway.</li>
+<li><b>Delivery/Collection service:</b> Date/time of delivery/collection, relevant documents.</li>
+<li><b>Vehicle Condition/Cleanliness/Appearance:</b> Interior and exterior photos uploaded under 'images'.</li>
+<li><b>Ready to rent checks:</b> Reports section → search "vehicle preparation documents".</li>
+</ul>
+
+<h3>Connexus — Telematics System</h3>
+<p>Log in via URL on One:Net bookmark.</p>
+<p>Operations → Vehicles → search by Greenway Status, Model, Movement type, Connectivity, or registration (search bar at top).</p>
+<h4>Vehicle detail screen shows:</h4> Connectivity status, current fuel level, latest mileage, Greenway status, last telemetry broadcast time.
+<h4>Locating vehicle position:</h4> "Show vehicle position" → select reason (GDPR compliance required). Connexus reveals position.
+<h4>Station Geofence:</h4> 30-day history of vehicle movements in/out of rental station locations.
+<h4>RPA / Cross-border:</h4> Automatically alerts when vehicle enters Northern Ireland/Republic of Ireland. Auto-applies cross-border charge, creates VE103B certificate, sends email/SMS to customer, adds RA notes.
+<h4>Fuel telemetry:</h4> Telemetry tab → search by date of rental or RA number → hover over graph for specific date/time reading → export results as PDF (must relate to correct customer — verify before sending).
+<h4>Mileage telemetry:</h4> Same as above — shows distance travelled on a specific date/time. Export as PDF.
+<h4>Battery Level telemetry:</h4> Same as above — shows battery percentage on a specific date/time. Export as PDF.
+<h4>Trips (restricted functionality):</h4> Shows trips made by vehicle — used for after-rental charges (late return, damage, abortive charges). Not all users have access — check with UK team if unsure or no access.
+<div class="wbox"><b>Always add notes</b> any time Connexus is used — add to CRM tool case AND Greenway, per the notes policy.</div>
+
+<h3>IT Service Management Suite (FINQ)</h3>
+<p>All FINQ requests raised by TL/SME only. Select "open a new financial query". Set: Financial impact = "Less than 10k euros" | Request = CA - Cash Application - Other | Assignment group = "Cash Application/Credit Card". Include RA, Case Number, and refund amount in Description. Attach FINQ form. Submit. Track in "My financial queries". Complete the FINQ tickets completed form after submission.</p>
+
+<h3>Cybersource — Payment Management Platform</h3>
+<p>Comprehensive payment platform for online transactions. Search parameters: Date Range, Transaction ID, Payment Card Number, Customer Email, Order Number. Advanced: Transaction Status, Payment Method, Billing/Shipping Information. Export results as CSV/Excel or generate custom reports.</p>
+</section>
+
+<!-- CS033 -->
+<section id="cs033">
+<h2><span class="doc-ref">CS033</span> UK RFI Queue Management</h2>
+<p class="doc-version">v1 | 17/10/2023 — Owner: Peter Grummitt</p>
+<div class="sla"><b>SLA: 48 hours</b> to respond to an RFI</div>
+<div class="ibox">This queue contains all RFIs sent to the UK from non-UK countries requiring action and review.</div>
+
+<h3>Locating the Queue</h3>
+<p>Service Console (Salesforce App launcher) → Cases → Select "UK-RFI" from case dropdown.</p>
+
+<h3>Managing the Queue</h3>
+<p>Work RFIs in <b>date order — oldest to newest</b>. Filter by <b>'Last Modified Date/Time'</b> (NOT 'Date/Time Opened' — that is when the initiating country opened their case, not when the RFI was sent to UK).</p>
+
+<h3>Answering an RFI</h3>
+<ol><li>Open case → click options arrow next to "send internal RFI" → select "Answer internal RFI button".</li><li>Text box appears with the detail of the RFI — ensure all points are answered.</li><li>Input all information → select "next". Case shows as answered and moves back to case worker's name.</li></ol>
+
+<h3>Providing Attachments</h3>
+<ol><li>Go to 'Attachments' tab → "upload files" → select file.</li><li>Box confirms upload → click "done". Document appears in Attachments field.</li></ol>
+<h4>Retrieve All Docs:</h4><p>If country requests documents (RA, SOR, AOP etc): check 'Retrieve all Docs' in Salesforce. If present: answer RFI confirming docs are in Retrieve all Docs (also refer to filenet if appropriate). If not present: advise country documents may take 5 working days to appear from return date.</p>
+<h4>Damage documents:</h4> Reallocate to <b>UK-RFI-Damage Team queue</b> — UK damage team picks it up.
+<h4>Fines documents:</h4> Access via SAFO system.
+
+<h3>Requesting More Information</h3>
+<p>If you need more info to answer the RFI: send an RFI yourself from their case (or blank RFI template if non-Customer First user). If no answer within 2 working days: make decision using what you have access to.</p>
+
+<h3>Sending RFI to Another UK Customer First User</h3>
+<p>Add case comment advising what info is needed. Reallocate to relevant station queue. REMEMBER — documents are not stored at rental stations.</p>
+<table><tr><th>Queue code</th><th>Station</th></tr>
+<tr><td>UK-ST-EDI-RFI</td><td>Edinburgh Airport</td></tr>
+<tr><td>UK-ST-LHR-RFI</td><td>London Heathrow Airport</td></tr>
+<tr><td>UK-ST-LGW-RFI</td><td>London Gatwick Airport</td></tr>
+</table>
+<p>When station answers, case should be reallocated back to the country who sent the RFI.</p>
+
+<h3>Areas Outside UK-RFI Remit</h3>
+<div class="wbox">The UK-RFI queue is only for providing answers — these actions are NOT within remit:
+<ul>
+<li><b>Respond to the customer</b> — the case belongs to the initiating country, not UK. Do NOT solve their case.</li>
+<li><b>Investigate the case</b> — if country says "read customer email and advise", decline. Ask them to specify what information/documents they need.</li>
+<li><b>Cancel the case</b> — no reason to cancel in UK-RFI queue.</li>
+<li><b>Fill out case information</b> (Outcome, Root Cause, Refund Amount) — these are not UK's cases.</li>
+<li><b>Work cases for non-UK hires</b> — if rental is for another country (including Republic of Ireland): answer RFI to advise they have contacted the wrong country.</li>
+</ul>
+</div>
+</section>
+
+<!-- CS035 -->
+<section id="cs035">
+<h2><span class="doc-ref">CS035</span> Complaint Types &amp; Levels</h2>
+<p class="doc-version">v1 | 26.11.2024 — Owners: Rachel Palmer &amp; Ricky Anderson-Stretton</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 days | UK RFI = 2 days | International RFI = 3 days</div>
+
+<h3>Complaint Levels Overview</h3>
+<table><tr><th>Level</th><th>Who handles</th><th>What</th></tr>
+<tr><td>Entry Level</td><td>All agents</td><td>Fuel Charge Dispute, Invoice Request, Additional Charges not Agreed at Pick Up, Station Refund Requests</td></tr>
+<tr><td>Level 1</td><td>All CS agents — first time resolution</td><td>All reason codes except Level 2, 3, 4</td></tr>
+<tr><td>Level 2</td><td>Experienced CS agents (tenure/senior) — returned/escalated cases</td><td>Returned complaints / escalated queries on all reason codes except Level 3 &amp; 4</td></tr>
+<tr><td>Level 3</td><td>Bespoke teams — NOT outsource partners</td><td>Damage, Fines (excluding admin fee &amp; first-time resolution), EC VeriCheck, Key Accounts (KAST), ISS</td></tr>
+<tr><td>Level 4</td><td>Executive Relations — NOT outsource partners</td><td>SMT/MD/Group/CEO escalations, Legal, BVRLA, ECRCS, Data Protection/GDPR, SARs, Right of Erasures</td></tr>
+</table>
+
+<h3>Level 1 Reason Codes (All CS agents)</h3>
+<ul>
+<li>Pre pick up: Cancellation fees | No show fees | Reservation failed by Europcar (Auto)</li>
+<li>Pick up experience: Priority service not provided | Waiting time | Voucher not applied | Delivery service | Station access | Deskless issue</li>
+<li>Rental refused: Mean of payment declined | Driver document issues | Rental refused by Europcar (unless EC VeriCheck) | Vehicle not available</li>
+<li>Vehicle: Fuel missing at pick up | Wrong category allocated | Equipment not available/not provided | Poor vehicle condition</li>
+<li>Return: Station issue | Staff poor service | Lost property | Collection service</li>
+<li>Document: Incorrect billing data | Invoice not received/not found | Request for invoice | RA document request | Fines info/proof request</li>
+<li>Invoice dispute general: Excessive mileage | Fuel charge dispute</li>
+<li>Invoice dispute extra services: Non-compliance with RA | Collection/delivery charge | One way | Mandatory charge dispute | Mandatory charge request | Additional charges not agreed</li>
+<li>Deposit: Not released/refunded after rental | Deposit issue after return</li>
+<li>Invoice dispute fines: Fines admin fee (document request)</li>
+<li>Loyalty: Add/Delete account | Issue with account | Missing rentals/points | Various airline/hotel partner missing miles</li>
+</ul>
+
+<h3>Level 2 Reason Codes (Experienced agents)</h3>
+<ul>
+<li>Pick up: Aggressive Sales / Insistence | Staff poor service at pick up</li>
+<li>Assistance: Replacement not provided/satisfactory | Waiting time assistance | Expenses following vehicle issues</li>
+<li>Extension: Extension not authorised</li>
+<li>Vehicle: Mechanical problems / safety issue</li>
+<li>Invoice general: Negotiated rate not applied | Duplicated billing</li>
+<li>Invoice extra: Tolls / Via Verde dispute | Cleaning fee</li>
+<li>Data Protection: Wrong driver ID selected | Right of a deceased person</li>
+<li>Loyalty: Issue with my rewards</li>
+</ul>
+
+<h3>Level 3 Reason Codes (Bespoke teams only)</h3>
+<ul>
+<li>Damage: Admin fee | Dispute | Request for info | Third party damage</li>
+<li>Fines: Admin fee (refund request) | Fines dispute</li>
+<li>Rental refused: EC VeriCheck issues</li>
+<li>All ISS queries | All KAST (Key Account) queries</li>
+</ul>
+
+<h3>Level 4 Reason Codes (Executive Relations only)</h3>
+<ul>
+<li>SMT / MD / Group / CEO Management escalations</li>
+<li>Legal queries | BVRLA | ECRCS</li>
+<li>Data Protection: Right of Erasure | Access/Copy of my Data (SAR) | Data Portability | Restrict or Object Use of my Data</li>
+</ul>
+</section>
+
+<!-- CS036 -->
+<section id="cs036">
+<h2><span class="doc-ref">CS036</span> Compensation &amp; Goodwill Gesture Guidelines</h2>
+<p class="doc-version">v1.1 | 15.05.2025 — Owners: Rachel Palmer &amp; Ricky Anderson-Stretton</p>
+<div class="sla"><b>SLA:</b> Case resolution = 5 days | UK RFI = 2 days | International RFI = 3 days</div>
+
+<h3>Discount Codes — First Time Resolution</h3>
+<p>Codes should be offered between <b>5–15%</b> for first time resolution. Guidelines are split by reason code (left side) and loyalty vs non-loyalty customers (top).</p>
+<table><tr><th>Discount</th><th>Code</th><th>Restrictions</th></tr>
+<tr><td>5% off next hire</td><td><b>54685255</b></td><td>None</td></tr>
+<tr><td>10% off next hire</td><td><b>54685260</b></td><td>None</td></tr>
+<tr><td>15% off next hire</td><td><b>54685272</b></td><td>Cannot be used for Selection or Luxury Fleet</td></tr>
+</table>
+
+<h3>Monetary Compensation</h3>
+<p>For monetary compensation following a discount code: broken down by how much the customer has been charged. Example: charged between £0–£100 → £10 refund can be actioned. Refer to the linked Compensation and Goodwill Gesture document for full threshold table.</p>
+
+<h3>Loyalty Points</h3>
+<p>Loyalty points may also be offered by way of compensation. Refer to the linked guidelines document for specifics.</p>
+
+<h3>Gesture of Goodwill</h3>
+<div class="wbox"><b>Maximum £25. ALL requests</b> for gestures of goodwill — regardless of amount and regardless of whether previously approved by station — must be sent to <code>rachel.palmer@europcar.com</code> for approval before processing.</div>
+<p>Appropriate when offering a payment without admitting liability for a purported breach of obligations. Used when customer experience was below expectations.</p>
+
+<h3>Key Reminders</h3>
+<ul>
+<li>Maximum one discount code per customer.</li>
+<li>Not for Third Party Bookers, Tour Operators, or Travel Agents.</li>
+<li>Not for Privilege customers.</li>
+<li>For Selection fleet: maximum 10% off (not 15%).</li>
+<li>Always include T&amp;C for the discount codes in the email response.</li>
+</ul>
+</section>
+<script>
+const secs=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('nav a[href^="#"]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
+  links.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+cur)a.classList.add('active');});
+});
+</script>
+</main>
+</body>
+</html>
