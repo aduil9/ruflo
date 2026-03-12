@@ -28,18 +28,14 @@ body{font-family:Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;padding:20px}
 .btn-submit:disabled{background:#999;cursor:not-allowed}
 
 /* Results */
-.results-box{background:#fff;padding:28px;border-radius:8px;text-align:center;margin-top:2px}
-.score-circle{width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:20px auto;font-size:36px;font-weight:bold;color:#fff}
+.results-box{background:#fff;padding:36px 28px;border-radius:8px;text-align:center;margin-top:2px}
+.score-circle{width:160px;height:160px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:24px auto;font-size:40px;font-weight:bold;color:#fff}
 .score-pass{background:linear-gradient(135deg,#2e7d32,#43a047)}
 .score-fail{background:linear-gradient(135deg,#c62828,#e53935)}
 .score-ok{background:linear-gradient(135deg,#ef6c00,#fb8c00)}
-.score-label{font-size:13px;font-weight:normal;margin-top:2px}
-.results-detail{text-align:left;margin-top:20px}
-.result-item{padding:12px 16px;margin-bottom:4px;border-radius:5px;font-size:13px;line-height:1.6}
-.result-correct{background:#e8f5e9;border-left:4px solid #43a047}
-.result-wrong{background:#fce4ec;border-left:4px solid #e53935}
-.result-item b{color:#003366}
-.feedback{font-size:12px;color:#555;margin-top:4px;font-style:italic}
+.score-label{font-size:14px;font-weight:normal;margin-top:4px}
+.results-msg{font-size:15px;color:#555;margin:16px 0 8px}
+.results-note{font-size:13px;color:#888;margin-top:12px;font-style:italic}
 
 .hidden{display:none}
 .error-msg{color:#c62828;font-size:12px;margin-top:4px}
@@ -77,92 +73,77 @@ var QUESTIONS = [
   {
     q: "What is the SLA for a Subject Access Request (SAR) under CS001 Data Protection?",
     options: ["5 working days", "14 days", "30 days", "60 days"],
-    answer: 2,
-    feedback: "SAR SLA is 30 days as per CS001."
-  },
-  {
-    q: "In the UK, where should all Subject Access Requests be sent after being checked by a Team Leader?",
-    options: ["uk.security@europcar.com", "executive.relations@europcar.com", "csdamage@europcar.com", "outsourcesupport@europcar.com"],
-    answer: 1,
-    feedback: "UK SARs must be sent to executive.relations@europcar.com."
+    answer: 2
   },
   {
     q: "Which of the following is NOT a valid reason to refuse a Right of Erasure request?",
     options: ["Customer has outstanding balances", "Customer is watchlisted", "Customer has an ongoing investigation", "Customer has not rented in over 12 months"],
-    answer: 3,
-    feedback: "Valid refusal reasons are: outstanding balances, watchlist, ongoing investigations. Inactivity is not a reason."
+    answer: 3
   },
   {
     q: "What is the standard grace period for a regular (non-Stars) customer returning a vehicle late?",
     options: ["15 minutes", "29 minutes", "1 hour", "2 hours"],
-    answer: 1,
-    feedback: "Standard grace period is 29 minutes (CS006). Stars members get 2 hours for UK hires only."
+    answer: 1
   },
   {
     q: "In Greenway, what does the reservation status code 'NS' mean?",
     options: ["Not Sold", "No Show", "New Submission", "Not Started"],
-    answer: 1,
-    feedback: "NS = No Show in Greenway reservation status codes (CS002)."
-  },
-  {
-    q: "When searching for damage claims in Riskappli, which number must you use?",
-    options: ["Invoice number", "Reservation number", "Rental Agreement (RA) number", "Driver ID number"],
-    answer: 2,
-    feedback: "Riskappli must be searched using the Rental Agreement (RA) number (CS005)."
+    answer: 1
   },
   {
     q: "For UK fines queries, which system should you use instead of sending an RFI to the station?",
     options: ["Connexus", "SAFO", "FileNet", "KGS"],
-    answer: 1,
-    feedback: "Never send UK RFI for fines documents — use SAFO (CS007)."
+    answer: 1
   },
   {
     q: "According to CS017, what is the maximum refund amount a Station Manager can authorise?",
     options: ["\u00a325", "\u00a350", "\u00a3100", "\u00a3150"],
-    answer: 1,
-    feedback: "Station Managers can authorise up to \u00a350. \u00a351\u2013\u00a3150 requires a Territory Manager."
-  },
-  {
-    q: "What is the maximum Gesture of Goodwill amount, and who must approve ALL goodwill gestures?",
-    options: ["Max \u00a350, approved by Team Leader", "Max \u00a325, approved by rachel.palmer@europcar.com", "Max \u00a325, approved by Station Manager", "Max \u00a3100, approved by Territory Manager"],
-    answer: 1,
-    feedback: "Max \u00a325 goodwill \u2014 ALL gestures must go to rachel.palmer@europcar.com for approval (CS017)."
+    answer: 1
   },
   {
     q: "When a UK customer is watchlisted for a reason OTHER than 'Fails to Pay', what should you do?",
-    options: ["Discuss the reason with the customer", "Refer them to Consumer Collections", "Do NOT discuss \u2014 refer them to uk.security@europcar.com", "Escalate to Executive Relations"],
-    answer: 2,
-    feedback: "Only 'Fails to Pay' can be discussed. Any other reason: refer to uk.security@europcar.com (CS002)."
+    options: ["Discuss the reason with the customer and resolve it", "Refer them to Consumer Collections on the phone", "Do NOT discuss the reason \u2014 refer them to email uk.security@europcar.com", "Send an RFI to the station that placed the watchlist"],
+    answer: 2
   },
   {
     q: "Within what timeframe must a customer report vehicle cleanliness issues with images and a valet receipt?",
     options: ["Within 12 hours of hire starting", "Within 24 hours of hire starting", "Within 48 hours of hire starting", "Before the vehicle is returned"],
-    answer: 1,
-    feedback: "Report, images, and valet receipt must all be within 24 hours of hire starting (CS016)."
+    answer: 1
   },
   {
     q: "Under what circumstance can unused days be refunded for a prepaid early return?",
-    options: ["If the customer gives 24 hours notice", "Early return due to mechanical breakdown (not customer fault)", "Unused days are always refunded", "Unused days are never refunded"],
-    answer: 1,
-    feedback: "Only exception: early return due to mechanical/breakdown \u2014 not keys lost/damaged/locked in (CS006)."
+    options: ["If the customer gives 24 hours notice", "Early return due to mechanical breakdown (not customer fault)", "Unused days are always refunded for prepaid", "If the customer contacts us before returning"],
+    answer: 1
   },
   {
     q: "What must a customer do when their vehicle breaks down before a replacement can be considered?",
     options: ["Drive to the nearest Europcar station", "Call the CS team directly", "Remain with the vehicle until breakdown service (AA) arrives", "Arrange their own tow and submit receipts"],
-    answer: 2,
-    feedback: "Customer must stay with the vehicle until AA arrives. Leaving = not adhering to T&C (CS011)."
+    answer: 2
   },
   {
-    q: "In the RFI escalation process, if a station doesn't respond within 2 working days, who is next?",
-    options: ["Regional Director", "Operations Director (Kevin Rand)", "Territory Manager (1 more working day)", "outsourcesupport@europcar.com"],
-    answer: 2,
-    feedback: "Escalation: Station (2 days) \u2192 Territory Manager (1 day) \u2192 outsourcesupport@europcar.com (CS017)."
+    q: "In the RFI escalation process, if a station doesn't respond within 2 working days, who do you escalate to next?",
+    options: ["Regional Director", "Operations Director (Kevin Rand)", "Territory Manager (given 1 more working day)", "outsourcesupport@europcar.com immediately"],
+    answer: 2
   },
   {
     q: "How long does Europcar hold credit card details after the last transaction?",
     options: ["6 months", "12 months", "13 months", "24 months"],
-    answer: 2,
-    feedback: "Card details held for 13 months after last transaction \u2014 Privacy Policy section 5 (CS001)."
+    answer: 2
+  },
+  {
+    q: "A customer disputes the grace period charge but does NOT claim the station told them they could return late at no charge. What is the correct action?",
+    options: ["Send an RFI to the station to verify", "Maintain the charge with reference to T&C", "Offer a discount code as goodwill", "Escalate to Territory Manager for a decision"],
+    answer: 1
+  },
+  {
+    q: "According to CS017, which system should you ALWAYS check before sending any RFI to a station?",
+    options: ["KGS", "FileNet", "Connexus", "SixPay"],
+    answer: 2
+  },
+  {
+    q: "A customer calls about a corporate booking dispute. Where should the case be allocated?",
+    options: ["UK-Damage queue", "UK-Fines queue", "UK-Key Accounts queue", "Consumer Collections"],
+    answer: 2
   }
 ];
 
@@ -238,7 +219,7 @@ function handleSubmit() {
   };
 
   google.script.run
-    .withSuccessHandler(function() { showResults(score, answers); })
+    .withSuccessHandler(function() { showResults(score); })
     .withFailureHandler(function(e) {
       btn.disabled = false;
       btn.textContent = 'Submit Quiz';
@@ -248,7 +229,7 @@ function handleSubmit() {
     .submitQuiz(payload);
 }
 
-function showResults(score, answers) {
+function showResults(score) {
   document.getElementById('quizForm').classList.add('hidden');
   var section = document.getElementById('resultsSection');
   section.classList.remove('hidden');
@@ -257,26 +238,20 @@ function showResults(score, answers) {
   var cls = pct >= 80 ? 'score-pass' : (pct >= 50 ? 'score-ok' : 'score-fail');
   var label = pct >= 80 ? 'PASSED' : (pct >= 50 ? 'NEEDS REVIEW' : 'FAILED');
 
-  var html = '<div class="results-box">';
-  html += '<h2 style="color:#003366">Your Results</h2>';
-  html += '<div class="score-circle ' + cls + '">' + score + '/' + QUESTIONS.length + '<span class="score-label">' + label + '</span></div>';
-  html += '<p style="font-size:15px;color:#555">' + pct + '% — ' + (pct >= 80 ? 'Great work!' : 'Please review the topics below and retake.') + '</p>';
-  html += '<div class="results-detail">';
-
-  for (var i = 0; i < QUESTIONS.length; i++) {
-    var correct = answers[i].correct;
-    html += '<div class="result-item ' + (correct ? 'result-correct' : 'result-wrong') + '">';
-    html += '<b>Q' + (i + 1) + ':</b> ' + QUESTIONS[i].q + '<br>';
-    html += '<b>Your answer:</b> ' + answers[i].selected;
-    if (!correct) {
-      html += ' &nbsp; <b>Correct:</b> ' + QUESTIONS[i].options[QUESTIONS[i].answer];
-    }
-    html += '<div class="feedback">' + QUESTIONS[i].feedback + '</div>';
-    html += '</div>';
+  var msg = '';
+  if (pct >= 80) {
+    msg = 'Well done! You have passed the quiz.';
+  } else if (pct >= 50) {
+    msg = 'You did not reach the pass mark. Please review the CS Process Guides and retake the quiz.';
+  } else {
+    msg = 'Unfortunately you did not pass. Please revisit the After Rental 101 training material and try again.';
   }
 
-  html += '</div>';
-  html += '<div style="margin-top:24px"><button class="btn-submit" onclick="location.reload()">Retake Quiz</button></div>';
+  var html = '<div class="results-box">';
+  html += '<h2 style="color:#003366">Quiz Submitted</h2>';
+  html += '<div class="score-circle ' + cls + '">' + score + '/' + QUESTIONS.length + '<span class="score-label">' + label + '</span></div>';
+  html += '<p class="results-msg">' + pct + '% &mdash; ' + msg + '</p>';
+  html += '<p class="results-note">Your answers have been recorded. Speak to your Team Leader if you need to discuss your results.</p>';
   html += '</div>';
 
   section.innerHTML = html;
