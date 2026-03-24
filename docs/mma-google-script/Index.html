@@ -7,8 +7,8 @@
     body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #1a1a2e; }
 
     .header {
-      background: linear-gradient(135deg, #1a73e8, #0d47a1);
-      color: #fff;
+      background: linear-gradient(135deg, #009F4D, #007a3b);
+      color: #FFFFFE;
       padding: 32px 24px;
       text-align: center;
     }
@@ -18,19 +18,19 @@
     .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
 
     .card {
-      background: #fff;
+      background: #FFFFFE;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       margin-bottom: 20px;
       overflow: hidden;
     }
     .card-header {
-      background: #e8f0fe;
+      background: #e6f5ed;
       padding: 14px 20px;
       font-size: 18px;
       font-weight: 700;
-      color: #1a73e8;
-      border-bottom: 2px solid #d2e3fc;
+      color: #009F4D;
+      border-bottom: 2px solid #b3e0c9;
     }
     .card-body { padding: 20px; line-height: 1.7; }
     .card-body ul { padding-left: 22px; }
@@ -39,8 +39,8 @@
 
     table { width: 100%; border-collapse: collapse; margin: 12px 0; }
     th {
-      background: #1a73e8;
-      color: #fff;
+      background: #009F4D;
+      color: #FFFFFE;
       text-align: left;
       padding: 10px 14px;
       font-size: 14px;
@@ -59,10 +59,11 @@
       font-size: 12px;
       font-weight: 600;
     }
-    .badge-green { background: #e6f4ea; color: #1e8e3e; }
+    .badge-green { background: #e6f5ed; color: #009F4D; }
     .badge-red { background: #fce8e6; color: #d93025; }
-    .badge-orange { background: #fef7e0; color: #e37400; }
-    .badge-blue { background: #e8f0fe; color: #1a73e8; }
+    .badge-orange { background: #fef7e0; color: #b8a000; }
+    .badge-yellow { background: #FFF9CC; color: #8a7a00; }
+    .badge-blue { background: #e6f5ed; color: #009F4D; }
 
     .flowchart {
       background: #f8f9fa;
@@ -77,8 +78,8 @@
     }
 
     .important-box {
-      background: #fff8e1;
-      border-left: 4px solid #f9a825;
+      background: #FFF9CC;
+      border-left: 4px solid #F8E300;
       padding: 14px 18px;
       margin: 12px 0;
       border-radius: 0 8px 8px 0;
@@ -92,11 +93,39 @@
       border-radius: 0 8px 8px 0;
     }
 
+    /* System screenshot mockups */
+    .screenshot {
+      background: #f5f5f5;
+      border: 1px solid #c0c0c0;
+      border-radius: 4px;
+      padding: 10px 16px;
+      font-family: 'Courier New', Consolas, monospace;
+      font-size: 14px;
+      color: #1a1a1a;
+      display: inline-block;
+      margin: 10px 0;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      letter-spacing: 0.3px;
+    }
+    .screenshot-label {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .screenshot .underline {
+      text-decoration: underline;
+      color: #0000cc;
+    }
+
     .btn {
       display: inline-block;
       padding: 12px 28px;
-      background: #1a73e8;
-      color: #fff;
+      background: #009F4D;
+      color: #FFFFFE;
       border: none;
       border-radius: 6px;
       font-size: 15px;
@@ -104,13 +133,12 @@
       cursor: pointer;
       margin-top: 10px;
     }
-    .btn:hover { background: #1557b0; }
-    .btn:disabled { background: #aaa; cursor: not-allowed; }
+    .btn:hover { background: #007a3b; }
 
     #status {
       margin-top: 12px;
       font-size: 14px;
-      color: #1e8e3e;
+      color: #009F4D;
     }
 
     .footer {
@@ -121,10 +149,11 @@
     }
 
     code {
-      background: #f1f3f4;
+      background: #e6f5ed;
       padding: 2px 6px;
       border-radius: 4px;
       font-size: 13px;
+      color: #007a3b;
     }
   </style>
 </head>
@@ -161,11 +190,36 @@
     <div class="card">
       <div class="card-header">2. How to Identify an MMA Booking in Greenway</div>
       <div class="card-body">
+        <p>MMA reservations can be identified by the following fields:</p>
+
         <table>
           <tr><th>Field</th><th>Value</th></tr>
-          <tr><td><strong>Direct Channel</strong></td><td><code>GWY/BERC75/INTERNET/[date &amp; time]/WEB</code></td></tr>
-          <tr><td><strong>IATA Code</strong></td><td><code>02095369 PPBA TO 4 VWFS</code></td></tr>
+          <tr>
+            <td><strong>Direct Channel</strong></td>
+            <td><code>GWY/BERC75/INTERNET/[date &amp; time]/WEB</code></td>
+          </tr>
+          <tr>
+            <td><strong>IATA Code</strong></td>
+            <td><code>02095369 PPBA TO 4 VWFS</code></td>
+          </tr>
         </table>
+
+        <!-- Screenshot: Direct Channel -->
+        <div style="margin-top: 16px;">
+          <span class="screenshot-label">Greenway — Direct Channel Example</span>
+          <div class="screenshot">
+            <span class="underline">GWY</span>/ <span class="underline">BERC75</span> / <span class="underline">VolkswagenVWFS</span>/ <span class="underline">06.10.2025 19:34</span> &nbsp; / <span class="underline">XRS</span>
+          </div>
+        </div>
+
+        <!-- Screenshot: IATA Code -->
+        <div style="margin-top: 12px;">
+          <span class="screenshot-label">Greenway — IATA / Comm Code Example</span>
+          <div class="screenshot">
+            Comm &nbsp;<span class="underline">02095369</span>&nbsp; <span style="letter-spacing:2px;">PPBA &nbsp;TO &nbsp;4 &nbsp;VWFS</span>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -313,12 +367,12 @@
       </div>
     </div>
 
-    <!-- Generate Google Doc Button -->
+    <!-- Save This Page -->
     <div class="card">
-      <div class="card-header">Generate Google Doc</div>
+      <div class="card-header">Save This Guide</div>
       <div class="card-body" style="text-align:center;">
-        <p>Click below to create a formatted Google Doc version of this guide:</p>
-        <button class="btn" id="createDocBtn" onclick="createDoc()">Create Google Doc</button>
+        <p style="margin-bottom:14px;">Bookmark this page for quick access to the guide.</p>
+        <button class="btn" onclick="bookmarkTip()">Bookmark This Page</button>
         <div id="status"></div>
       </div>
     </div>
@@ -330,26 +384,12 @@
   </div>
 
   <script>
-    function createDoc() {
-      var btn = document.getElementById('createDocBtn');
+    function bookmarkTip() {
       var status = document.getElementById('status');
-      btn.disabled = true;
-      btn.textContent = 'Creating...';
-      status.textContent = '';
-
-      google.script.run
-        .withSuccessHandler(function(url) {
-          btn.disabled = false;
-          btn.textContent = 'Create Google Doc';
-          status.innerHTML = 'Document created! <a href="' + url + '" target="_blank">Open Google Doc</a>';
-        })
-        .withFailureHandler(function(err) {
-          btn.disabled = false;
-          btn.textContent = 'Create Google Doc';
-          status.textContent = 'Error: ' + err.message;
-          status.style.color = '#d93025';
-        })
-        .createMMADocument();
+      var isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+      var shortcut = isMac ? 'Cmd + D' : 'Ctrl + D';
+      status.innerHTML = 'Press <strong>' + shortcut + '</strong> to bookmark this page for quick access!';
+      status.style.color = '#009F4D';
     }
   </script>
 
