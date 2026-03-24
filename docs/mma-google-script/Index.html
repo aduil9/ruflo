@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #1a1a2e; }
+
+    .header {
+      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      color: #fff;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .header h1 { font-size: 28px; margin-bottom: 6px; }
+    .header p { font-size: 14px; opacity: 0.85; }
+
+    .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .card-header {
+      background: #e8f0fe;
+      padding: 14px 20px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a73e8;
+      border-bottom: 2px solid #d2e3fc;
+    }
+    .card-body { padding: 20px; line-height: 1.7; }
+    .card-body ul { padding-left: 22px; }
+    .card-body ul li { margin-bottom: 6px; }
+    .card-body ul ul { margin-top: 4px; }
+
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+    th {
+      background: #1a73e8;
+      color: #fff;
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 14px;
+    }
+    tr:nth-child(even) td { background: #f8f9fa; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-green { background: #e6f4ea; color: #1e8e3e; }
+    .badge-red { background: #fce8e6; color: #d93025; }
+    .badge-orange { background: #fef7e0; color: #e37400; }
+    .badge-blue { background: #e8f0fe; color: #1a73e8; }
+
+    .flowchart {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    .important-box {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      padding: 14px 18px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .do-not-box {
+      background: #fce8e6;
+      border-left: 4px solid #d93025;
+      padding: 14px 18px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover { background: #1557b0; }
+    .btn:disabled { background: #aaa; cursor: not-allowed; }
+
+    #status {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #1e8e3e;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    code {
+      background: #f1f3f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>MMA App — Agent Reference Guide</h1>
+    <p>Effective Date: March 2026 &nbsp;|&nbsp; Introduced by: EMG (Europcar Mobility Group)</p>
+  </div>
+
+  <div class="container">
+
+    <!-- Section 1 -->
+    <div class="card">
+      <div class="card-header">1. What is the MMA App?</div>
+      <div class="card-body">
+        <p>The <strong>Multi-Mobility Application (MMA)</strong> is Europcar's next-generation mobile app, developed in partnership with <strong>Volkswagen Financial Services (VWFS)</strong>.</p>
+        <br>
+        <strong>Key Objectives:</strong>
+        <ul>
+          <li>Replace the current Europcar app as the single booking platform</li>
+          <li>Offer a mobility marketplace, including:
+            <ul>
+              <li>Car-sharing (MILES)</li>
+              <li>E-bikes &amp; e-scooters (Dott)</li>
+              <li>Additional mobility services planned from 2026 onwards</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="card">
+      <div class="card-header">2. How to Identify an MMA Booking in Greenway</div>
+      <div class="card-body">
+        <table>
+          <tr><th>Field</th><th>Value</th></tr>
+          <tr><td><strong>Direct Channel</strong></td><td><code>GWY/BERC75/INTERNET/[date &amp; time]/WEB</code></td></tr>
+          <tr><td><strong>IATA Code</strong></td><td><code>02095369 PPBA TO 4 VWFS</code></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="card">
+      <div class="card-header">3. Handling Booking Modifications</div>
+      <div class="card-body">
+        <p>If a customer requests a modification, follow one of the two options below:</p>
+        <br>
+        <strong>Option 1 — Customer Self-Service <span class="badge badge-green">Preferred</span></strong>
+        <ul>
+          <li>Ask the customer to cancel the booking directly in the MMA app</li>
+          <li>Customer rebooks with the desired changes in the app</li>
+        </ul>
+        <br>
+        <strong>Option 2 — Agent-Assisted Modification</strong>
+        <ul>
+          <li>Customer cancels the original booking in the app</li>
+          <li>Agent duplicates the booking in Greenway</li>
+          <li>Agent removes IATA information from the duplicated booking</li>
+          <li>Agent completes the modified booking</li>
+          <li>Customer receives an email confirmation</li>
+        </ul>
+        <div class="important-box">
+          <strong>Important:</strong> Customer must still cancel the original booking in the app.
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="card">
+      <div class="card-header">4. Handling Cancellations</div>
+      <div class="card-body">
+        <table>
+          <tr><th>Rule</th><th>Detail</th></tr>
+          <tr><td>How to cancel</td><td>Customer must cancel <strong>directly via the MMA app</strong></td></tr>
+          <tr><td>Cancellation fees</td><td><span class="badge badge-green">No cancellation fees apply</span></td></tr>
+          <tr><td>No-show fees</td><td><span class="badge badge-green">No no-show fees apply</span></td></tr>
+          <tr><td>Customer refuses to use app</td><td>Redirect to <strong>MMA Customer Support</strong> (see Section 6)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="card">
+      <div class="card-header">5. What CS Agents Should NOT Handle</div>
+      <div class="card-body">
+        <div class="do-not-box">
+          <strong>All MMA-related issues must be managed by the dedicated MMA Team.</strong> Do not attempt to resolve the following:
+        </div>
+        <ul>
+          <li>App usage issues</li>
+          <li>Reservation problems originating in the app</li>
+          <li>Account issues (login, registration, profile)</li>
+          <li>Error messages within the app</li>
+          <li><strong>Prepaid payments</strong> made through the app</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="card">
+      <div class="card-header">6. How to Forward MMA Issues</div>
+      <div class="card-body">
+        <strong>Via the App (Customer Self-Service)</strong>
+        <ul>
+          <li>Customer navigates to <strong>Account &gt; Support &amp; Feedback</strong></li>
+          <li>A Salesforce case is automatically created and assigned to <strong>MMA – App Support</strong></li>
+        </ul>
+        <br>
+        <strong>Via Phone (Agent Creates Case)</strong>
+        <ul>
+          <li>Create a <strong>Query Case</strong> in Salesforce</li>
+          <li>Add the <strong>customer account name</strong></li>
+          <li>Change <strong>Case Owner</strong> to: <code>MMA – App Support</code></li>
+          <li>Select the correct <strong>Case Origin</strong>:
+            <ul>
+              <li><span class="badge badge-blue">DE</span> Germany</li>
+              <li><span class="badge badge-blue">IE</span> Ireland</li>
+              <li><span class="badge badge-blue">ECI</span> Europcar International</li>
+            </ul>
+          </li>
+          <li>Set <strong>Case Reason 1</strong> to: <code>MMA – App Support</code></li>
+          <li>Case status is automatically set to <span class="badge badge-orange">In Progress</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="card">
+      <div class="card-header">7. Important — Features Not Yet Available in MMA</div>
+      <div class="card-body">
+        <p>Agents should proactively communicate these limitations to customers:</p>
+        <table>
+          <tr><th>Feature</th><th>Current Status</th><th>Workaround</th></tr>
+          <tr>
+            <td><strong>Loyalty Program</strong></td>
+            <td><span class="badge badge-orange">Partial</span> Discounts included, full loyalty benefits not available</td>
+            <td>Direct customer to the Europcar website</td>
+          </tr>
+          <tr>
+            <td><strong>Bundle Offers</strong></td>
+            <td><span class="badge badge-red">Not Available</span></td>
+            <td>Standard pricing applies</td>
+          </tr>
+          <tr>
+            <td><strong>No-Show &amp; Cancellation Fees</strong></td>
+            <td><span class="badge badge-green">No fees applied</span></td>
+            <td>N/A</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="card">
+      <div class="card-header">8. Quick Reference — Decision Flowchart</div>
+      <div class="card-body">
+        <div class="flowchart">Customer contacts CS about MMA booking
+│
+├─ Modification request?
+│   ├─ Option 1: Cancel &amp; rebook in app (preferred)
+│   └─ Option 2: Cancel in app → Agent duplicates in Greenway → Remove IATA
+│
+├─ Cancellation request?
+│   └─ Direct customer to cancel in the MMA app (no fees apply)
+│
+├─ App issue / payment issue / account issue?
+│   └─ DO NOT handle — Forward to MMA Team (Section 6)
+│
+└─ Loyalty / bundle question?
+    └─ Inform customer of limitations (Section 7)</div>
+      </div>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="card">
+      <div class="card-header">9. Key Contacts</div>
+      <div class="card-body">
+        <table>
+          <tr><th>Team</th><th>Responsibility</th><th>How to Reach</th></tr>
+          <tr><td><strong>MMA – App Support</strong></td><td>All app-related issues</td><td>Salesforce case (Case Owner: MMA – App Support)</td></tr>
+          <tr><td><strong>EMG</strong></td><td>Programme owner</td><td>Internal escalation</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Generate Google Doc Button -->
+    <div class="card">
+      <div class="card-header">Generate Google Doc</div>
+      <div class="card-body" style="text-align:center;">
+        <p>Click below to create a formatted Google Doc version of this guide:</p>
+        <button class="btn" id="createDocBtn" onclick="createDoc()">Create Google Doc</button>
+        <div id="status"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    MMA App Agent Guide — EMG / Europcar Mobility Group — March 2026
+  </div>
+
+  <script>
+    function createDoc() {
+      var btn = document.getElementById('createDocBtn');
+      var status = document.getElementById('status');
+      btn.disabled = true;
+      btn.textContent = 'Creating...';
+      status.textContent = '';
+
+      google.script.run
+        .withSuccessHandler(function(url) {
+          btn.disabled = false;
+          btn.textContent = 'Create Google Doc';
+          status.innerHTML = 'Document created! <a href="' + url + '" target="_blank">Open Google Doc</a>';
+        })
+        .withFailureHandler(function(err) {
+          btn.disabled = false;
+          btn.textContent = 'Create Google Doc';
+          status.textContent = 'Error: ' + err.message;
+          status.style.color = '#d93025';
+        })
+        .createMMADocument();
+    }
+  </script>
+
+</body>
+</html>
